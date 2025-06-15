@@ -241,7 +241,7 @@ const Hero = () => {
               {/* Inner Glowing Core */}
               <motion.div
                 className="absolute top-1/2 left-1/2 w-32 h-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-500/50 to-purple-500/50 blur-xl"
-                animate{{
+                animate={{
                   scale: [1, 1.2, 1],
                   opacity: [0.5, 0.8, 0.5],
                 }}
