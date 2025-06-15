@@ -29,7 +29,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-slate-700 to-blue-600 bg-clip-text text-transparent">
               ModernCorp
             </h1>
           </div>
@@ -40,7 +40,7 @@ const Navbar = () => {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 capitalize"
+                  className="text-slate-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 capitalize"
                 >
                   {item}
                 </button>
@@ -51,7 +51,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600 p-2"
+              className="text-slate-700 hover:text-blue-600 p-2"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -66,7 +66,7 @@ const Navbar = () => {
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="block px-3 py-2 text-gray-700 hover:text-blue-600 text-sm font-medium capitalize w-full text-left"
+                className="block px-3 py-2 text-slate-700 hover:text-blue-600 text-sm font-medium capitalize w-full text-left"
               >
                 {item}
               </button>

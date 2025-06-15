@@ -31,12 +31,12 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50">
       {/* Animated Background Elements */}
       <div className="absolute inset-0">
         {/* Floating Orbs */}
         <motion.div
-          className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-xl"
+          className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-blue-500/20 to-slate-600/20 rounded-full blur-xl"
           animate={{
             x: [0, 100, 0],
             y: [0, -50, 0],
@@ -49,7 +49,7 @@ const Hero = () => {
           }}
         />
         <motion.div
-          className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-xl"
+          className="absolute bottom-20 right-20 w-24 h-24 bg-gradient-to-r from-slate-600/20 to-blue-500/20 rounded-full blur-xl"
           animate={{
             x: [0, -80, 0],
             y: [0, 60, 0],
@@ -63,7 +63,7 @@ const Hero = () => {
           }}
         />
         <motion.div
-          className="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-r from-blue-300/30 to-cyan-300/30 rounded-full blur-lg"
+          className="absolute top-1/2 left-1/4 w-16 h-16 bg-gradient-to-r from-blue-400/30 to-slate-500/30 rounded-full blur-lg"
           animate={{
             x: [0, -40, 0],
             y: [0, 40, 0],
@@ -106,12 +106,12 @@ const Hero = () => {
 
             <motion.h1
               variants={itemVariants}
-              className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-6 leading-tight"
+              className="text-5xl md:text-7xl lg:text-8xl font-bold text-slate-800 mb-6 leading-tight"
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               Transform Your
               <motion.span
-                className="block bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-500 bg-clip-text text-transparent"
+                className="block bg-gradient-to-r from-blue-500 via-slate-700 to-blue-600 bg-clip-text text-transparent"
                 animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                 }}
@@ -130,7 +130,7 @@ const Hero = () => {
             
             <motion.p
               variants={itemVariants}
-              className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl leading-relaxed"
+              className="text-xl md:text-2xl text-slate-600 mb-8 max-w-2xl leading-relaxed"
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               Harness the power of AI-driven solutions, secure finance technology, and creative strategy 
@@ -148,7 +148,7 @@ const Hero = () => {
               >
                 <Button 
                   size="lg" 
-                  className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
+                  className="group bg-gradient-to-r from-slate-700 to-blue-600 hover:from-slate-800 hover:to-blue-700 text-white px-8 py-4 text-lg shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
                 >
                   Get Started
                   <motion.div
@@ -167,7 +167,7 @@ const Hero = () => {
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="group border-2 border-gray-300 hover:border-blue-600 hover:bg-blue-50 px-8 py-4 text-lg backdrop-blur-sm bg-white/80 transition-all duration-300"
+                  className="group border-2 border-slate-300 hover:border-blue-600 hover:bg-blue-50 px-8 py-4 text-lg backdrop-blur-sm bg-white/80 transition-all duration-300"
                 >
                   <Play className="mr-2 h-5 w-5 group-hover:text-blue-600 transition-colors" />
                   Watch Demo
@@ -182,8 +182,8 @@ const Hero = () => {
             >
               {[
                 { value: "10K+", label: "Happy Clients", color: "text-blue-600" },
-                { value: "99.9%", label: "Uptime", color: "text-purple-600" },
-                { value: "24/7", label: "Support", color: "text-cyan-600" }
+                { value: "99.9%", label: "Uptime", color: "text-slate-700" },
+                { value: "24/7", label: "Support", color: "text-blue-500" }
               ].map((stat, index) => (
                 <motion.div
                   key={index}
@@ -207,7 +207,7 @@ const Hero = () => {
                   >
                     {stat.value}
                   </motion.div>
-                  <div className="text-gray-600 font-medium">{stat.label}</div>
+                  <div className="text-slate-600 font-medium">{stat.label}</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -228,7 +228,7 @@ const Hero = () => {
             <div className="relative w-96 h-96">
               {/* 3D Glass Sphere Effect */}
               <motion.div
-                className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-400/30 via-purple-400/20 to-cyan-400/30 backdrop-blur-sm border border-white/30"
+                className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500/30 via-slate-600/20 to-blue-400/30 backdrop-blur-sm border border-white/30"
                 animate={{
                   rotate: [0, 360],
                   scale: [1, 1.1, 1],
@@ -238,13 +238,13 @@ const Hero = () => {
                   scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
                 }}
                 style={{
-                  background: "conic-gradient(from 0deg, rgba(59, 130, 246, 0.3), rgba(147, 51, 234, 0.3), rgba(6, 182, 212, 0.3), rgba(59, 130, 246, 0.3))"
+                  background: "conic-gradient(from 0deg, rgba(59, 130, 246, 0.3), rgba(71, 85, 105, 0.3), rgba(59, 130, 246, 0.3), rgba(71, 85, 105, 0.3))"
                 }}
               />
               
               {/* Inner Glowing Core */}
               <motion.div
-                className="absolute top-1/2 left-1/2 w-32 h-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-500/50 to-purple-500/50 blur-xl"
+                className="absolute top-1/2 left-1/2 w-32 h-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-500/50 to-slate-600/50 blur-xl"
                 animate={{
                   scale: [1, 1.2, 1],
                   opacity: [0.5, 0.8, 0.5],
@@ -260,7 +260,7 @@ const Hero = () => {
               {[...Array(8)].map((_, i) => (
                 <motion.div
                   key={i}
-                  className="absolute w-2 h-2 bg-blue-400 rounded-full"
+                  className="absolute w-2 h-2 bg-blue-500 rounded-full"
                   style={{
                     top: `${Math.random() * 100}%`,
                     left: `${Math.random() * 100}%`,
@@ -287,9 +287,9 @@ const Hero = () => {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center relative overflow-hidden">
+        <div className="w-6 h-10 border-2 border-slate-400 rounded-full flex justify-center relative overflow-hidden">
           <motion.div
-            className="w-1 h-3 bg-gray-400 rounded-full mt-2"
+            className="w-1 h-3 bg-slate-400 rounded-full mt-2"
             animate={{ y: [0, 16, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
