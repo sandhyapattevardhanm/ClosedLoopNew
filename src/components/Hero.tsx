@@ -23,7 +23,7 @@ const Hero = () => {
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: [0.6, -0.05, 0.01, 0.99]
+        ease: "easeOut"
       }
     }
   };
@@ -35,7 +35,7 @@ const Hero = () => {
         duration: 4,
         repeat: Infinity,
         repeatType: "reverse" as const,
-        ease: [0.4, 0, 0.6, 1]
+        ease: "easeInOut"
       }
     }
   };
@@ -55,7 +55,7 @@ const Hero = () => {
           transition={{
             duration: 8,
             repeat: Infinity,
-            ease: [0.4, 0, 0.6, 1]
+            ease: "easeInOut"
           }}
         />
         <motion.div
@@ -68,7 +68,7 @@ const Hero = () => {
           transition={{
             duration: 6,
             repeat: Infinity,
-            ease: [0.4, 0, 0.6, 1],
+            ease: "easeInOut",
             delay: 1
           }}
         />
@@ -81,7 +81,7 @@ const Hero = () => {
           transition={{
             duration: 5,
             repeat: Infinity,
-            ease: [0.4, 0, 0.6, 1],
+            ease: "easeInOut",
             delay: 2
           }}
         />
@@ -123,7 +123,7 @@ const Hero = () => {
                 transition={{
                   duration: 5,
                   repeat: Infinity,
-                  ease: [0.4, 0, 0.6, 1]
+                  ease: "easeInOut"
                 }}
                 style={{
                   backgroundSize: "200% 200%"
@@ -231,7 +231,7 @@ const Hero = () => {
                 }}
                 transition={{
                   rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 4, repeat: Infinity, ease: [0.4, 0, 0.6, 1] }
+                  scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
                 }}
                 style={{
                   background: "conic-gradient(from 0deg, rgba(59, 130, 246, 0.3), rgba(147, 51, 234, 0.3), rgba(6, 182, 212, 0.3), rgba(59, 130, 246, 0.3))"
@@ -248,7 +248,7 @@ const Hero = () => {
                 transition={{
                   duration: 3,
                   repeat: Infinity,
-                  ease: [0.4, 0, 0.6, 1]
+                  ease: "easeInOut"
                 }}
               />
 
