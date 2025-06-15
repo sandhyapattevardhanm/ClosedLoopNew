@@ -20,11 +20,7 @@ const Hero = () => {
     hidden: { y: 50, opacity: 0 },
     visible: {
       y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
+      opacity: 1
     }
   };
 
@@ -99,7 +95,11 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
           >
-            <motion.div variants={itemVariants} className="mb-6">
+            <motion.div 
+              variants={itemVariants} 
+              className="mb-6"
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
               <motion.div
                 className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full text-sm font-medium text-blue-600 mb-6 border border-blue-100"
                 whileHover={{ scale: 1.05 }}
@@ -113,6 +113,7 @@ const Hero = () => {
             <motion.h1
               variants={itemVariants}
               className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-6 leading-tight"
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
               Transform Your
               <motion.span
@@ -136,6 +137,7 @@ const Hero = () => {
             <motion.p
               variants={itemVariants}
               className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl leading-relaxed"
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
               Harness the power of AI-driven solutions, secure finance technology, and creative strategy 
               to elevate your business to new heights.
@@ -144,6 +146,7 @@ const Hero = () => {
             <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-12"
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -181,6 +184,7 @@ const Hero = () => {
             <motion.div
               variants={itemVariants}
               className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto lg:mx-0"
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
               {[
                 { value: "10K+", label: "Happy Clients", color: "text-blue-600" },
