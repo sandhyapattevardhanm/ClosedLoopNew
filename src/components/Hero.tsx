@@ -23,8 +23,7 @@ const Hero = () => {
       opacity: 1,
       filter: "blur(0px)",
       transition: {
-        duration: 0.8,
-        ease: "easeOut"
+        duration: 0.8
       }
     }
   };
@@ -36,8 +35,7 @@ const Hero = () => {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        duration: 0.6
       }
     }
   };
@@ -60,8 +58,7 @@ const Hero = () => {
           }}
           transition={{
             duration: 20,
-            repeat: Infinity,
-            ease: "easeInOut"
+            repeat: Infinity
           }}
         />
         
@@ -80,7 +77,6 @@ const Hero = () => {
           transition={{
             duration: 15,
             repeat: Infinity,
-            ease: "easeInOut",
             delay: 3
           }}
         />
@@ -102,8 +98,7 @@ const Hero = () => {
             transition={{
               duration: 6 + Math.random() * 4,
               repeat: Infinity,
-              delay: Math.random() * 5,
-              ease: "easeInOut"
+              delay: Math.random() * 5
             }}
           />
         ))}
@@ -157,8 +152,7 @@ const Hero = () => {
                 }}
                 transition={{
                   duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut"
+                  repeat: Infinity
                 }}
               >
                 Digital Future
@@ -288,8 +282,7 @@ const Hero = () => {
                 }}
                 transition={{
                   duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut"
+                  repeat: Infinity
                 }}
                 whileHover={{
                   scale: 1.02,
@@ -327,7 +320,6 @@ const Hero = () => {
                 transition={{
                   duration: 5,
                   repeat: Infinity,
-                  ease: "easeInOut",
                   delay: 1
                 }}
                 whileHover={{
@@ -359,8 +351,8 @@ const Hero = () => {
                   scale: [1, 1.1, 1],
                 }}
                 transition={{
-                  rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                  rotate: { duration: 20, repeat: Infinity },
+                  scale: { duration: 4, repeat: Infinity }
                 }}
               />
 
@@ -376,8 +368,7 @@ const Hero = () => {
                 }}
                 transition={{
                   duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
+                  repeat: Infinity
                 }}
               />
             </div>
