@@ -26,13 +26,7 @@ const Hero = () => {
 
   const floatingVariants = {
     animate: {
-      y: [-20, 20],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        repeatType: "reverse" as const,
-        ease: "easeInOut"
-      }
+      y: [-20, 20]
     }
   };
 
@@ -224,6 +218,12 @@ const Hero = () => {
             className="flex-1 hidden lg:flex items-center justify-center relative"
             variants={floatingVariants}
             animate="animate"
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              repeatType: "reverse" as const,
+              ease: "easeInOut"
+            }}
           >
             <div className="relative w-96 h-96">
               {/* 3D Glass Sphere Effect */}
