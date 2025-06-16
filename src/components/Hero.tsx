@@ -1,4 +1,5 @@
 
+
 import React, { useCallback, useRef } from 'react';
 import { ArrowRight, Play, MessageSquare, Code, Zap, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -234,11 +235,11 @@ const Hero = () => {
               variants={itemVariants}
               className="text-6xl font-bold mb-6 leading-tight tracking-tight"
             >
-              <span className="text-transparent bg-gradient-to-r from-blue-400 via-white to-blue-400 bg-clip-text animate-[shimmer_3s_infinite_linear] bg-[length:400%_100%]">
+              <span className="text-transparent bg-gradient-to-r from-blue-400 via-white to-blue-400 bg-clip-text animate-shimmer bg-[length:400%_100%]">
                 Transform Your
               </span>
               <motion.span
-                className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent animate-[shimmer_3s_infinite_linear] bg-[length:400%_100%]"
+                className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent animate-shimmer bg-[length:400%_100%]"
                 style={{ animationDelay: "0.5s" }}
               >
                 Digital Future
@@ -357,20 +358,19 @@ const Hero = () => {
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
-                transition={{ delay: 0.4 }}
                 className="absolute top-20 right-0 w-80 p-6 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10"
                 animate={{
                   y: [-5, 5, -5],
                 }}
                 transition={{
                   duration: 6,
-                  repeat: Infinity
+                  repeat: Infinity,
+                  delay: 0.4
                 }}
                 whileHover={{
                   scale: 1.02,
                   rotateZ: 2,
-                  boxShadow: "0 0 30px #60A5FA40",
-                  transition: { duration: 0.3 }
+                  boxShadow: "0 0 30px #60A5FA40"
                 }}
               >
                 <div className="flex items-center gap-3 mb-4">
@@ -395,7 +395,6 @@ const Hero = () => {
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
-                transition={{ delay: 0.6 }}
                 className="absolute top-60 left-10 w-72 p-5 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10"
                 animate={{
                   y: [5, -5, 5],
@@ -403,13 +402,12 @@ const Hero = () => {
                 transition={{
                   duration: 5,
                   repeat: Infinity,
-                  delay: 1
+                  delay: 1.6
                 }}
                 whileHover={{
                   scale: 1.02,
                   rotateZ: -2,
-                  boxShadow: "0 0 25px #8B5CF640",
-                  transition: { duration: 0.3 }
+                  boxShadow: "0 0 25px #8B5CF640"
                 }}
               >
                 <div className="flex items-center gap-3 mb-3">
@@ -442,7 +440,6 @@ const Hero = () => {
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
-                transition={{ delay: 0.8 }}
                 className="absolute bottom-20 right-16 w-64 p-4 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10"
                 animate={{
                   y: [-3, 3, -3],
@@ -450,13 +447,12 @@ const Hero = () => {
                 transition={{
                   duration: 7,
                   repeat: Infinity,
-                  delay: 2
+                  delay: 2.8
                 }}
                 whileHover={{
                   scale: 1.02,
                   rotateZ: 1,
-                  boxShadow: "0 0 20px #06B6D440",
-                  transition: { duration: 0.3 }
+                  boxShadow: "0 0 20px #06B6D440"
                 }}
               >
                 <div className="flex items-center gap-2 mb-2">
@@ -544,3 +540,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
