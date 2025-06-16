@@ -1,5 +1,4 @@
 
-
 import React, { useCallback, useRef } from 'react';
 import { ArrowRight, Play, MessageSquare, Code, Zap, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -355,17 +354,17 @@ const Hero = () => {
               
               {/* Main AI Chat Card */}
               <motion.div
-                variants={cardVariants}
                 initial="hidden"
-                animate="visible"
-                className="absolute top-20 right-0 w-80 p-6 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10"
                 animate={{
+                  opacity: 1,
                   y: [-5, 5, -5],
+                  rotateZ: 0
                 }}
+                className="absolute top-20 right-0 w-80 p-6 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10"
                 transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  delay: 0.4
+                  opacity: { duration: 0.5, type: "spring" as const, stiffness: 200, damping: 25 },
+                  y: { duration: 6, repeat: Infinity, delay: 0.4 },
+                  rotateZ: { duration: 0.5, type: "spring" as const, stiffness: 200, damping: 25 }
                 }}
                 whileHover={{
                   scale: 1.02,
@@ -392,17 +391,17 @@ const Hero = () => {
 
               {/* Code Analysis Card */}
               <motion.div
-                variants={cardVariants}
                 initial="hidden"
-                animate="visible"
-                className="absolute top-60 left-10 w-72 p-5 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10"
                 animate={{
+                  opacity: 1,
                   y: [5, -5, 5],
+                  rotateZ: 0
                 }}
+                className="absolute top-60 left-10 w-72 p-5 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10"
                 transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  delay: 1.6
+                  opacity: { duration: 0.5, type: "spring" as const, stiffness: 200, damping: 25 },
+                  y: { duration: 5, repeat: Infinity, delay: 1.6 },
+                  rotateZ: { duration: 0.5, type: "spring" as const, stiffness: 200, damping: 25 }
                 }}
                 whileHover={{
                   scale: 1.02,
@@ -437,17 +436,17 @@ const Hero = () => {
 
               {/* Analytics Dashboard Card */}
               <motion.div
-                variants={cardVariants}
                 initial="hidden"
-                animate="visible"
-                className="absolute bottom-20 right-16 w-64 p-4 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10"
                 animate={{
+                  opacity: 1,
                   y: [-3, 3, -3],
+                  rotateZ: 0
                 }}
+                className="absolute bottom-20 right-16 w-64 p-4 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10"
                 transition={{
-                  duration: 7,
-                  repeat: Infinity,
-                  delay: 2.8
+                  opacity: { duration: 0.5, type: "spring" as const, stiffness: 200, damping: 25 },
+                  y: { duration: 7, repeat: Infinity, delay: 2.8 },
+                  rotateZ: { duration: 0.5, type: "spring" as const, stiffness: 200, damping: 25 }
                 }}
                 whileHover={{
                   scale: 1.02,
@@ -540,4 +539,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
