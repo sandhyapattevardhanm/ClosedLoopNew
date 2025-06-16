@@ -1,13 +1,26 @@
-
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { ArrowRight, Play, MessageSquare, Code, Zap, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import type { Container, Engine } from "tsparticles-engine";
 
 const Hero = () => {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollY } = useScroll();
+  
+  // Smooth scroll transforms for parallax
+  const y1 = useTransform(scrollY, [0, 1000], [0, -100]);
+  const y2 = useTransform(scrollY, [0, 1000], [0, -150]);
+  const y3 = useTransform(scrollY, [0, 1000], [0, -75]);
+  
+  // Spring physics for smooth motion
+  const springConfig = { damping: 30, stiffness: 100 };
+  const smoothY1 = useSpring(y1, springConfig);
+  const smoothY2 = useSpring(y2, springConfig);
+  const smoothY3 = useSpring(y3, springConfig);
+
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadFull(engine);
   }, []);
@@ -21,38 +34,44 @@ const Hero = () => {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2
+        delayChildren: 0.1,
+        staggerChildren: 0.15
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50, filter: "blur(10px)" },
+    hidden: { opacity: 0, y: 30, filter: "blur(8px)" },
     visible: {
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
       transition: {
-        duration: 0.8
+        duration: 0.4,
+        type: "spring",
+        stiffness: 300,
+        damping: 30
       }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 50, rotate: -5 },
+    hidden: { opacity: 0, y: 40, rotateZ: -3 },
     visible: {
       opacity: 1,
       y: 0,
-      rotate: 0,
+      rotateZ: 0,
       transition: {
-        duration: 0.8
+        duration: 0.5,
+        type: "spring",
+        stiffness: 200,
+        damping: 25
       }
     }
   };
 
   return (
-    <section id="home" className="relative h-screen flex items-center overflow-hidden bg-[#0D0D0D] px-4 sm:px-6 lg:px-10">
+    <section ref={ref} id="home" className="relative h-screen flex items-center overflow-hidden bg-[#0D0D0D] px-4 sm:px-6 lg:px-10">
       {/* Particles Background */}
       <Particles
         id="tsparticles"
@@ -133,12 +152,12 @@ const Hero = () => {
         }}
       />
 
-      {/* Floating Background Blobs */}
+      {/* Floating Background Blobs with Parallax */}
       <div className="absolute inset-0">
         <motion.div
           className="absolute w-[300px] h-[300px] bg-[#60A5FA]/20 rounded-full blur-3xl top-[-5%] left-[-10%]"
+          style={{ y: smoothY1 }}
           animate={{
-            y: [-20, 20, -20],
             x: [-10, 10, -10],
             scale: [1, 1.1, 1],
           }}
@@ -150,8 +169,8 @@ const Hero = () => {
         
         <motion.div
           className="absolute w-[400px] h-[400px] bg-[#8B5CF6]/15 rounded-full blur-3xl bottom-[-10%] right-[-5%]"
+          style={{ y: smoothY2 }}
           animate={{
-            y: [20, -20, 20],
             x: [10, -10, 10],
             scale: [1, 0.9, 1],
           }}
@@ -164,6 +183,7 @@ const Hero = () => {
 
         <motion.div
           className="absolute w-[250px] h-[250px] bg-[#06B6D4]/10 rounded-full blur-2xl top-1/2 left-1/3"
+          style={{ y: smoothY3 }}
           animate={{
             rotate: [0, 360],
             scale: [1, 1.2, 1],
@@ -190,35 +210,35 @@ const Hero = () => {
             <motion.div variants={itemVariants} className="mb-8">
               <motion.div
                 className="inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-medium text-blue-400 backdrop-blur-md bg-white/5 border border-white/10"
-                style={{
-                  boxShadow: "0 0 30px #60A5FA30"
-                }}
                 whileHover={{ 
                   scale: 1.05,
-                  boxShadow: "0 0 40px #60A5FA50"
+                  boxShadow: "0 0 40px #60A5FA50",
+                  borderColor: "rgba(96, 165, 250, 0.3)"
                 }}
                 whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <Brain className="w-4 h-4" />
+                <motion.div
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+                >
+                  <Brain className="w-4 h-4" />
+                </motion.div>
                 <span>AI-Powered Innovation</span>
               </motion.div>
             </motion.div>
 
-            {/* Main Headline */}
+            {/* Main Headline with Shimmer Effect */}
             <motion.h1
               variants={itemVariants}
-              className="text-6xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text mb-6 leading-tight tracking-tight"
+              className="text-6xl font-bold mb-6 leading-tight tracking-tight"
             >
-              Transform Your
+              <span className="text-transparent bg-gradient-to-r from-blue-400 via-white to-blue-400 bg-clip-text animate-[shimmer_3s_infinite_linear] bg-[length:400%_100%]">
+                Transform Your
+              </span>
               <motion.span
-                className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent"
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity
-                }}
+                className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent animate-[shimmer_3s_infinite_linear] bg-[length:400%_100%]"
+                style={{ animationDelay: "0.5s" }}
               >
                 Digital Future
               </motion.span>
@@ -240,19 +260,20 @@ const Hero = () => {
               <motion.div
                 whileHover={{ 
                   scale: 1.02,
-                  rotate: 1
+                  rotateZ: 1
                 }}
                 whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <Button 
                   size="lg" 
-                  className="group bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-6 text-lg font-semibold border-0 rounded-xl transition-all duration-300 shadow-[0_0_30px_#60A5FA30] hover:shadow-[0_0_40px_#60A5FA50]"
+                  className="group bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-6 text-lg font-semibold border-0 rounded-xl transition-all duration-300 hover:shadow-[0_0_20px_#60A5FA60]"
                 >
                   Get Started
                   <motion.div
                     className="ml-2"
                     animate={{ x: [0, 4, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
                   >
                     <ArrowRight className="h-5 w-5" />
                   </motion.div>
@@ -262,22 +283,28 @@ const Hero = () => {
               <motion.div
                 whileHover={{ 
                   scale: 1.02,
-                  rotate: -1
+                  rotateZ: -1
                 }}
                 whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <Button 
                   variant="outline" 
                   size="lg" 
-                  className="group px-8 py-6 text-lg font-semibold text-gray-300 hover:text-white transition-all duration-300 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10"
+                  className="group px-8 py-6 text-lg font-semibold text-gray-300 hover:text-white transition-all duration-300 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10 hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]"
                 >
-                  <Play className="mr-2 h-5 w-5 group-hover:text-blue-400 transition-colors" />
+                  <motion.div
+                    whileHover={{ scale: 1.2, rotate: 90 }}
+                    className="mr-2"
+                  >
+                    <Play className="h-5 w-5 group-hover:text-blue-400 transition-colors" />
+                  </motion.div>
                   Watch Demo
                 </Button>
               </motion.div>
             </motion.div>
 
-            {/* Stats */}
+            {/* Stats with Counter Animation */}
             <motion.div
               variants={itemVariants}
               className="grid grid-cols-3 gap-8 max-w-md"
@@ -292,14 +319,17 @@ const Hero = () => {
                   className="text-center backdrop-blur-md bg-white/5 p-4 rounded-lg border border-white/10"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.5 + index * 0.2 }}
-                  whileHover={{ scale: 1.05 }}
+                  transition={{ delay: 0.8 + index * 0.1 }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 0 15px rgba(96, 165, 250, 0.2)"
+                  }}
                 >
                   <motion.div 
                     className="text-2xl font-bold text-blue-400 mb-1"
                     animate={{ scale: [1, 1.05, 1] }}
                     transition={{ 
-                      duration: 3, 
+                      duration: 2, 
                       repeat: Infinity, 
                       delay: index * 0.5 
                     }}
@@ -317,7 +347,7 @@ const Hero = () => {
             className="relative hidden lg:block"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
             <div className="relative w-full h-[600px]">
               
@@ -326,14 +356,10 @@ const Hero = () => {
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
-                transition={{ delay: 0.7 }}
+                transition={{ delay: 0.4 }}
                 className="absolute top-20 right-0 w-80 p-6 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10"
-                style={{
-                  boxShadow: "0 0 30px #60A5FA30"
-                }}
                 animate={{
                   y: [-5, 5, -5],
-                  rotateY: [0, 2, 0]
                 }}
                 transition={{
                   duration: 6,
@@ -341,8 +367,8 @@ const Hero = () => {
                 }}
                 whileHover={{
                   scale: 1.02,
-                  rotateY: 5,
-                  boxShadow: "0 0 40px #60A5FA50",
+                  rotateZ: 2,
+                  boxShadow: "0 0 30px #60A5FA40",
                   transition: { duration: 0.3 }
                 }}
               >
@@ -368,14 +394,10 @@ const Hero = () => {
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
-                transition={{ delay: 0.9 }}
+                transition={{ delay: 0.6 }}
                 className="absolute top-60 left-10 w-72 p-5 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10"
-                style={{
-                  boxShadow: "0 0 25px #8B5CF630"
-                }}
                 animate={{
                   y: [5, -5, 5],
-                  rotateY: [0, -2, 0]
                 }}
                 transition={{
                   duration: 5,
@@ -384,8 +406,8 @@ const Hero = () => {
                 }}
                 whileHover={{
                   scale: 1.02,
-                  rotateY: -5,
-                  boxShadow: "0 0 35px #8B5CF650",
+                  rotateZ: -2,
+                  boxShadow: "0 0 25px #8B5CF640",
                   transition: { duration: 0.3 }
                 }}
               >
@@ -419,14 +441,10 @@ const Hero = () => {
                 variants={cardVariants}
                 initial="hidden"
                 animate="visible"
-                transition={{ delay: 1.1 }}
+                transition={{ delay: 0.8 }}
                 className="absolute bottom-20 right-16 w-64 p-4 rounded-2xl backdrop-blur-md bg-white/5 border border-white/10"
-                style={{
-                  boxShadow: "0 0 20px #06B6D430"
-                }}
                 animate={{
                   y: [-3, 3, -3],
-                  rotateY: [0, 1, 0]
                 }}
                 transition={{
                   duration: 7,
@@ -435,8 +453,8 @@ const Hero = () => {
                 }}
                 whileHover={{
                   scale: 1.02,
-                  rotateY: 3,
-                  boxShadow: "0 0 30px #06B6D450",
+                  rotateZ: 1,
+                  boxShadow: "0 0 20px #06B6D440",
                   transition: { duration: 0.3 }
                 }}
               >
@@ -461,7 +479,7 @@ const Hero = () => {
                 </div>
               </motion.div>
 
-              {/* Floating 3D Orb */}
+              {/* Enhanced Floating 3D Orb */}
               <motion.div
                 className="absolute top-32 left-20 w-32 h-32 rounded-full"
                 style={{
@@ -476,9 +494,10 @@ const Hero = () => {
                   rotate: { duration: 20, repeat: Infinity },
                   scale: { duration: 4, repeat: Infinity }
                 }}
+                whileHover={{ scale: 1.2, filter: "blur(1px)" }}
               />
 
-              {/* Inner Glowing Core */}
+              {/* Enhanced Glowing Core */}
               <motion.div
                 className="absolute top-44 left-32 w-8 h-8 rounded-full bg-gradient-to-r from-blue-500/80 to-purple-500/80"
                 style={{
@@ -492,20 +511,25 @@ const Hero = () => {
                   duration: 3,
                   repeat: Infinity
                 }}
+                whileHover={{ 
+                  boxShadow: "0 0 60px rgba(96, 165, 250, 0.8)",
+                  scale: 1.5
+                }}
               />
             </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Enhanced Scroll Indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
+        whileHover={{ scale: 1.1, y: 0 }}
       >
         <div 
-          className="w-6 h-10 rounded-full flex justify-center relative overflow-hidden backdrop-blur-md bg-white/5 border border-white/20"
+          className="w-6 h-10 rounded-full flex justify-center relative overflow-hidden backdrop-blur-md bg-white/5 border border-white/20 hover:border-blue-400/40 transition-colors"
         >
           <motion.div
             className="w-1 h-3 bg-blue-400 rounded-full mt-2"

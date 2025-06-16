@@ -145,6 +145,12 @@
     to { transform: rotate(360deg); }
   }
 
+  /* Shimmer animation for text */
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
   /* Particle animation */
   .floating-particle {
     animation: float 6s ease-in-out infinite;
