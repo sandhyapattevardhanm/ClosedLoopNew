@@ -4,7 +4,7 @@ import { ArrowRight, Play, MessageSquare, Code, Zap, Brain } from 'lucide-react'
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles-engine";
+import { loadFull } from "tsparticles";
 import type { Container, Engine } from "tsparticles-engine";
 
 const Hero = () => {
