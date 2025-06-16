@@ -77,7 +77,7 @@ const Team = () => {
       scale: 1,
       transition: {
         duration: 0.4,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 300,
         damping: 30
       }
@@ -118,7 +118,7 @@ const Team = () => {
                 y: -10,
                 rotateZ: 1,
                 scale: 1.02,
-                transition: { duration: 0.3, type: "spring", stiffness: 300, damping: 20 }
+                transition: { duration: 0.3, type: "spring" as const, stiffness: 300, damping: 20 }
               }}
             >
               {/* Enhanced glow effect */}

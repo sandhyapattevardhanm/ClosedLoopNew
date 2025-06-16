@@ -1,7 +1,8 @@
+
 import React, { useCallback, useRef } from 'react';
 import { ArrowRight, Play, MessageSquare, Code, Zap, Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 import type { Container, Engine } from "tsparticles-engine";
@@ -48,7 +49,7 @@ const Hero = () => {
       filter: "blur(0px)",
       transition: {
         duration: 0.4,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 300,
         damping: 30
       }
@@ -63,7 +64,7 @@ const Hero = () => {
       rotateZ: 0,
       transition: {
         duration: 0.5,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 200,
         damping: 25
       }
@@ -216,7 +217,7 @@ const Hero = () => {
                   borderColor: "rgba(96, 165, 250, 0.3)"
                 }}
                 whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                transition={{ type: "spring" as const, stiffness: 300, damping: 20 }}
               >
                 <motion.div
                   animate={{ rotate: [0, 10, -10, 0] }}
@@ -263,7 +264,7 @@ const Hero = () => {
                   rotateZ: 1
                 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                transition={{ type: "spring" as const, stiffness: 300, damping: 20 }}
               >
                 <Button 
                   size="lg" 
@@ -286,7 +287,7 @@ const Hero = () => {
                   rotateZ: -1
                 }}
                 whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                transition={{ type: "spring" as const, stiffness: 300, damping: 20 }}
               >
                 <Button 
                   variant="outline" 

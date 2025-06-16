@@ -57,7 +57,7 @@ const Features = () => {
       scale: 1,
       transition: {
         duration: 0.4,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 300,
         damping: 30
       }
@@ -102,7 +102,7 @@ const Features = () => {
                   y: -8,
                   rotateZ: 1,
                   scale: 1.02,
-                  transition: { duration: 0.3, type: "spring", stiffness: 300, damping: 20 }
+                  transition: { duration: 0.3, type: "spring" as const, stiffness: 300, damping: 20 }
                 }}
               >
                 <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 h-full relative overflow-hidden border border-gray-100 group-hover:border-blue-200">
