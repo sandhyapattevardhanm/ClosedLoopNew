@@ -33,14 +33,14 @@ const Values = () => {
   ];
 
   return (
-    <section id="values" className="py-20 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-[#0D0D0D] to-[#1A1A1A] relative overflow-hidden">
-      {/* Background Elements */}
+    <section id="values" className="relative py-20 bg-gradient-to-b from-[#0D0D0D] to-[#1A1A1A] overflow-hidden">
+      {/* Ambient Background Orbs */}
       <div className="absolute inset-0">
-        <div className="absolute w-[500px] h-[500px] bg-gradient-to-r from-blue-600/20 via-purple-500/15 to-cyan-500/20 rounded-full blur-3xl top-10 left-1/4 animate-pulse" />
-        <div className="absolute w-[400px] h-[400px] bg-gradient-to-r from-purple-600/15 via-pink-500/10 to-blue-500/15 rounded-full blur-3xl bottom-10 right-1/4 animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute w-[500px] h-[500px] bg-[#60A5FA]/20 rounded-full blur-3xl top-10 left-1/4 animate-pulse" />
+        <div className="absolute w-[400px] h-[400px] bg-[#3B82F6]/15 rounded-full blur-3xl bottom-10 right-1/4 animate-pulse" style={{ animationDelay: '2s' }} />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -49,12 +49,13 @@ const Values = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text">
-              Our Core Values
+          <h2 className="text-4xl md:text-5xl font-light mb-6 tracking-tight">
+            <span className="text-gray-300">Our Core</span>
+            <span className="block text-transparent bg-gradient-to-r from-[#60A5FA] to-[#3B82F6] bg-clip-text animate-shimmer bg-[length:400%_100%]">
+              Values
             </span>
           </h2>
-          <p className="text-gray-400 text-xl max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
             The principles that guide everything we do, from artist relationships to audience experiences.
           </p>
         </motion.div>
@@ -69,25 +70,22 @@ const Values = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ 
-                scale: 1.03,
-                rotateX: 5,
-                rotateY: -5,
-                boxShadow: "0 25px 60px rgba(96, 165, 250, 0.25)"
+                scale: 1.015,
+                boxShadow: "0 0 30px rgba(96, 165, 250, 0.3)"
               }}
-              className="group relative p-8 rounded-2xl backdrop-blur-md bg-white/8 border border-white/15 hover:border-blue-400/40 transition-all duration-400"
-              style={{ transformStyle: "preserve-3d" }}
+              className="group bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 glass-card"
             >
               {/* Value Icon */}
               <motion.div
                 whileHover={{ scale: 1.2, rotate: 10 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-2xl group-hover:shadow-blue-500/30 transition-all duration-300"
+                className="w-20 h-20 bg-gradient-to-br from-[#60A5FA] to-[#3B82F6] rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-2xl group-hover:shadow-[#60A5FA]/30 transition-all duration-300"
               >
                 <value.icon className="w-10 h-10 text-white" />
               </motion.div>
 
               {/* Value Title */}
-              <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+              <h3 className="text-2xl font-light text-white mb-4 group-hover:text-[#60A5FA] transition-colors">
                 {value.title}
               </h3>
 
@@ -95,12 +93,6 @@ const Values = () => {
               <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
                 {value.description}
               </p>
-
-              {/* Hover Overlay with Gradient */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none" />
-              
-              {/* Subtle Border Glow */}
-              <div className="absolute inset-0 rounded-2xl border border-blue-400/0 group-hover:border-blue-400/20 transition-all duration-400 pointer-events-none" />
             </motion.div>
           ))}
         </div>
@@ -122,7 +114,7 @@ const Values = () => {
               boxShadow: "0 0 30px rgba(96, 165, 250, 0.5)"
             }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300"
+            className="bg-[#3B82F6] hover:bg-[#2563EB] hover:shadow-[0_0_20px_#60A5FA] text-white font-light px-8 py-4 rounded-xl transition-all duration-300"
           >
             Experience Our Values in Action
           </motion.button>
