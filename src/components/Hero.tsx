@@ -32,7 +32,7 @@ const Hero = () => {
     console.log(container);
   }, []);
 
-  // Fixed motion variants with proper ease values
+  // Fixed motion variants with proper TypeScript compatibility
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -51,8 +51,7 @@ const Hero = () => {
       y: 0,
       filter: "blur(0px)",
       transition: {
-        duration: 0.4,
-        ease: "easeOut"
+        duration: 0.4
       }
     }
   };
@@ -242,8 +241,7 @@ const Hero = () => {
                   transition={{ 
                     duration: 3, 
                     repeat: Infinity, 
-                    repeatDelay: 2,
-                    ease: "easeInOut"
+                    repeatDelay: 2
                   }}
                 >
                   <Music className="w-4 h-4" />
@@ -346,8 +344,7 @@ const Hero = () => {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{ 
                     delay: 1.2 + stat.delay,
-                    duration: 0.4,
-                    ease: "easeOut"
+                    duration: 0.4
                   }}
                   whileHover={{ 
                     scale: 1.08,
@@ -395,7 +392,7 @@ const Hero = () => {
                 className="absolute top-20 right-0 w-80 p-6 rounded-2xl backdrop-blur-md bg-white/8 border border-white/15"
                 transition={{
                   opacity: { duration: 0.6, delay: 0.8 },
-                  y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+                  y: { duration: 8, repeat: Infinity },
                 }}
                 whileHover={{
                   scale: 1.05,
@@ -432,7 +429,7 @@ const Hero = () => {
                 className="absolute top-60 left-10 w-72 p-5 rounded-2xl backdrop-blur-md bg-white/8 border border-white/15"
                 transition={{
                   opacity: { duration: 0.6, delay: 1.2 },
-                  y: { duration: 10, repeat: Infinity, ease: "easeInOut" },
+                  y: { duration: 10, repeat: Infinity },
                 }}
                 whileHover={{
                   scale: 1.05,
@@ -477,7 +474,7 @@ const Hero = () => {
                 className="absolute bottom-20 right-16 w-64 p-4 rounded-2xl backdrop-blur-md bg-white/8 border border-white/15"
                 transition={{
                   opacity: { duration: 0.6, delay: 1.6 },
-                  y: { duration: 12, repeat: Infinity, ease: "easeInOut" },
+                  y: { duration: 12, repeat: Infinity },
                 }}
                 whileHover={{
                   scale: 1.05,
@@ -521,7 +518,7 @@ const Hero = () => {
                 }}
                 transition={{
                   rotate: { duration: 30, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                  scale: { duration: 6, repeat: Infinity },
                 }}
                 whileHover={{ 
                   scale: 1.3, 
@@ -540,8 +537,8 @@ const Hero = () => {
                   opacity: [0.8, 1, 0.8],
                 }}
                 transition={{
-                  scale: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                  opacity: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                  scale: { duration: 4, repeat: Infinity },
+                  opacity: { duration: 4, repeat: Infinity },
                 }}
                 whileHover={{ 
                   boxShadow: "0 0 80px rgba(168, 85, 247, 1)",
@@ -557,7 +554,7 @@ const Hero = () => {
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block cursor-pointer"
         animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+        transition={{ duration: 2.5, repeat: Infinity }}
         whileHover={{ 
           scale: 1.2, 
           y: 0,
@@ -576,8 +573,7 @@ const Hero = () => {
             }}
             transition={{ 
               duration: 2.5, 
-              repeat: Infinity, 
-              ease: "easeInOut"
+              repeat: Infinity
             }}
           />
         </div>
