@@ -151,7 +151,7 @@ const Hero = () => {
       {/* Enhanced Floating Background Blobs */}
       <div className="absolute inset-0">
         <motion.div
-          className="absolute w-[400px] h-[400px] bg-gradient-to-r from-purple-500/30 via-pink-400/20 to-blue-500/25 rounded-full blur-3xl"
+          className="absolute w-[400px] h-[400px] bg-gradient-to-r from-purple-500/30 via-violet-400/20 to-blue-500/25 rounded-full blur-3xl"
           style={{ 
             y: smoothY1,
             left: "-15%",
@@ -190,7 +190,7 @@ const Hero = () => {
         />
 
         <motion.div
-          className="absolute w-[300px] h-[300px] bg-gradient-to-r from-cyan-500/20 via-purple-400/25 to-pink-600/15 rounded-full blur-2xl"
+          className="absolute w-[300px] h-[300px] bg-gradient-to-r from-cyan-500/20 via-purple-400/25 to-violet-600/15 rounded-full blur-2xl"
           style={{ 
             y: smoothY3,
             left: "30%",
@@ -224,11 +224,11 @@ const Hero = () => {
             {/* Premium Badge */}
             <motion.div variants={itemVariants} className="mb-8">
               <motion.div
-                className="inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-medium text-purple-400 backdrop-blur-md bg-white/5 border border-white/10 cursor-pointer"
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-full text-sm font-medium text-violet-400 backdrop-blur-md bg-white/5 border border-white/10 cursor-pointer"
                 whileHover={{ 
                   scale: 1.05,
-                  boxShadow: "0 0 40px #A855F750",
-                  borderColor: "rgba(168, 85, 247, 0.4)",
+                  boxShadow: "0 0 40px #7C3AED50",
+                  borderColor: "rgba(124, 58, 237, 0.4)",
                 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -256,12 +256,12 @@ const Hero = () => {
               className="text-6xl font-bold mb-6 leading-tight tracking-tight"
             >
               <motion.span 
-                className="block text-transparent bg-gradient-to-r from-purple-400 via-pink-300 to-blue-500 bg-clip-text animate-shimmer bg-[length:400%_100%]"
+                className="block text-transparent bg-gradient-to-r from-violet-400 via-indigo-300 to-blue-500 bg-clip-text animate-shimmer bg-[length:400%_100%]"
               >
                 Welcome to
               </motion.span>
               <motion.span
-                className="block bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-shimmer bg-[length:400%_100%]"
+                className="block bg-gradient-to-r from-blue-400 via-violet-500 to-indigo-500 bg-clip-text text-transparent animate-shimmer bg-[length:400%_100%]"
               >
                 ClosedLoop
               </motion.span>
@@ -289,7 +289,7 @@ const Hero = () => {
               >
                 <Button 
                   size="lg" 
-                  className="group bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white px-8 py-6 text-lg font-semibold border-0 rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_#A855F760]"
+                  className="group bg-gradient-to-r from-violet-600 to-indigo-500 hover:from-violet-700 hover:to-indigo-600 text-white px-8 py-6 text-lg font-semibold border-0 rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_#7C3AED60]"
                 >
                   Discover Talent
                   <motion.div
@@ -320,7 +320,7 @@ const Hero = () => {
                     className="mr-2"
                     transition={{ duration: 0.3 }}
                   >
-                    <Play className="h-5 w-5 group-hover:text-purple-400 transition-colors" />
+                    <Play className="h-5 w-5 group-hover:text-violet-400 transition-colors" />
                   </motion.div>
                   Watch Showreel
                 </Button>
@@ -348,14 +348,14 @@ const Hero = () => {
                   }}
                   whileHover={{ 
                     scale: 1.08,
-                    boxShadow: "0 0 20px rgba(168, 85, 247, 0.3)",
+                    boxShadow: "0 0 20px rgba(124, 58, 237, 0.3)",
                   }}
                 >
                   <motion.div 
-                    className="text-2xl font-bold text-purple-400 mb-1"
+                    className="text-2xl font-bold text-violet-400 mb-1"
                     animate={{ 
                       scale: [1, 1.05, 1],
-                      color: ["#A855F7", "#EC4899", "#A855F7"]
+                      color: ["#7C3AED", "#6366F1", "#7C3AED"]
                     }}
                     transition={{ 
                       duration: 4, 
@@ -396,13 +396,13 @@ const Hero = () => {
                 }}
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0 20px 60px #A855F740",
+                  boxShadow: "0 20px 60px #7C3AED40",
                   z: 50
                 }}
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gradient-to-r from-violet-500 to-indigo-500 rounded-full flex items-center justify-center">
                     <Users className="w-4 h-4 text-white" />
                   </div>
                   <div className="text-white font-semibold">Artist Management</div>
@@ -412,9 +412,9 @@ const Hero = () => {
                   End-to-end career development, strategic planning, and artist representation for global success.
                 </div>
                 <div className="flex gap-2">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
-                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
-                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+                  <div className="w-2 h-2 bg-violet-400 rounded-full animate-pulse" />
+                  <div className="w-2 h-2 bg-violet-400 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
+                  <div className="w-2 h-2 bg-violet-400 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
                 </div>
               </motion.div>
 
@@ -433,13 +433,13 @@ const Hero = () => {
                 }}
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0 20px 60px #EC489940",
+                  boxShadow: "0 20px 60px #6366F140",
                   z: 50
                 }}
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-7 h-7 bg-gradient-to-r from-pink-500 to-blue-500 rounded-full flex items-center justify-center">
+                  <div className="w-7 h-7 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full flex items-center justify-center">
                     <Calendar className="w-3 h-3 text-white" />
                   </div>
                   <div className="text-white font-medium text-sm">Event Production</div>
@@ -454,7 +454,7 @@ const Hero = () => {
                   </div>
                   <div className="w-full bg-gray-700 rounded-full h-1">
                     <motion.div 
-                      className="bg-gradient-to-r from-pink-400 to-blue-400 h-1 rounded-full"
+                      className="bg-gradient-to-r from-indigo-400 to-blue-400 h-1 rounded-full"
                       initial={{ width: 0 }}
                       animate={{ width: "95%" }}
                       transition={{ duration: 2, delay: 2 }}
@@ -484,7 +484,7 @@ const Hero = () => {
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-violet-500 rounded-full flex items-center justify-center">
                     <Music className="w-3 h-3 text-white" />
                   </div>
                   <div className="text-white font-medium text-xs">Talent Network</div>
@@ -498,7 +498,7 @@ const Hero = () => {
                     <div className="text-gray-500">Artists</div>
                   </div>
                   <div className="text-center p-2 bg-white/5 rounded">
-                    <div className="text-purple-400 font-semibold">Global</div>
+                    <div className="text-violet-400 font-semibold">Global</div>
                     <div className="text-gray-500">Reach</div>
                   </div>
                 </div>
@@ -508,7 +508,7 @@ const Hero = () => {
               <motion.div
                 className="absolute top-32 left-20 w-32 h-32 rounded-full cursor-pointer"
                 style={{
-                  background: "conic-gradient(from 0deg, rgba(168, 85, 247, 0.5), rgba(236, 72, 153, 0.4), rgba(59, 130, 246, 0.5), rgba(168, 85, 247, 0.5))",
+                  background: "conic-gradient(from 0deg, rgba(124, 58, 237, 0.5), rgba(99, 102, 241, 0.4), rgba(59, 130, 246, 0.5), rgba(124, 58, 237, 0.5))",
                   filter: "blur(2px)",
                   transformStyle: "preserve-3d"
                 }}
@@ -528,9 +528,9 @@ const Hero = () => {
 
               {/* Enhanced Glowing Core */}
               <motion.div
-                className="absolute top-44 left-32 w-8 h-8 rounded-full bg-gradient-to-r from-purple-500/90 to-pink-500/90"
+                className="absolute top-44 left-32 w-8 h-8 rounded-full bg-gradient-to-r from-violet-500/90 to-indigo-500/90"
                 style={{
-                  boxShadow: "0 0 50px rgba(168, 85, 247, 0.8)"
+                  boxShadow: "0 0 50px rgba(124, 58, 237, 0.8)"
                 }}
                 animate={{
                   scale: [1, 1.4, 1],
@@ -541,7 +541,7 @@ const Hero = () => {
                   opacity: { duration: 4, repeat: Infinity },
                 }}
                 whileHover={{ 
-                  boxShadow: "0 0 80px rgba(168, 85, 247, 1)",
+                  boxShadow: "0 0 80px rgba(124, 58, 237, 1)",
                   scale: 1.6
                 }}
               />
@@ -558,15 +558,15 @@ const Hero = () => {
         whileHover={{ 
           scale: 1.2, 
           y: 0,
-          boxShadow: "0 0 20px rgba(168, 85, 247, 0.5)"
+          boxShadow: "0 0 20px rgba(124, 58, 237, 0.5)"
         }}
         onClick={() => {
           document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
         }}
       >
-        <div className="w-6 h-10 rounded-full flex justify-center relative overflow-hidden backdrop-blur-md bg-white/8 border border-white/25 hover:border-purple-400/50 transition-all duration-300">
+        <div className="w-6 h-10 rounded-full flex justify-center relative overflow-hidden backdrop-blur-md bg-white/8 border border-white/25 hover:border-violet-400/50 transition-all duration-300">
           <motion.div
-            className="w-1 h-3 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full mt-2"
+            className="w-1 h-3 bg-gradient-to-b from-violet-400 to-indigo-400 rounded-full mt-2"
             animate={{ 
               y: [0, 20, 0],
               opacity: [1, 0.3, 1]
