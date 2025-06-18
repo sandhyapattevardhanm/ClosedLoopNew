@@ -32,7 +32,7 @@ const Hero = () => {
     console.log(container);
   }, []);
 
-  // Enhanced motion variants with proper ease format
+  // Fixed motion variants with proper ease values
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -230,7 +230,6 @@ const Hero = () => {
                   scale: 1.05,
                   boxShadow: "0 0 40px #A855F750",
                   borderColor: "rgba(168, 85, 247, 0.4)",
-                  rotateZ: 1
                 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -286,13 +285,9 @@ const Hero = () => {
               <motion.div
                 whileHover={{ 
                   scale: 1.03,
-                  rotateX: 2,
-                  rotateY: -2,
-                  rotateZ: 1
                 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                style={{ transformStyle: "preserve-3d" }}
               >
                 <Button 
                   size="lg" 
@@ -312,14 +307,10 @@ const Hero = () => {
               <motion.div
                 whileHover={{ 
                   scale: 1.03,
-                  rotateX: -2,
-                  rotateY: 2,
-                  rotateZ: -1,
                   boxShadow: "0 0 25px rgba(255,255,255,0.15)"
                 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                style={{ transformStyle: "preserve-3d" }}
               >
                 <Button 
                   variant="outline" 
@@ -361,7 +352,6 @@ const Hero = () => {
                   whileHover={{ 
                     scale: 1.08,
                     boxShadow: "0 0 20px rgba(168, 85, 247, 0.3)",
-                    rotateZ: 2
                   }}
                 >
                   <motion.div 
@@ -388,8 +378,8 @@ const Hero = () => {
           <motion.div 
             className="relative hidden lg:block"
             style={{ y: smoothYCards }}
-            initial={{ opacity: 0, x: 100, rotateY: -15 }}
-            animate={{ opacity: 1, x: 0, rotateY: 0 }}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
             <div className="relative w-full h-[600px]" style={{ perspective: "1000px" }}>
@@ -400,20 +390,15 @@ const Hero = () => {
                 animate={{
                   opacity: 1,
                   y: [-8, 8, -8],
-                  rotateX: [0, 2, 0],
                   z: 0
                 }}
                 className="absolute top-20 right-0 w-80 p-6 rounded-2xl backdrop-blur-md bg-white/8 border border-white/15"
                 transition={{
                   opacity: { duration: 0.6, delay: 0.8 },
                   y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-                  rotateX: { duration: 8, repeat: Infinity, ease: "easeInOut" }
                 }}
                 whileHover={{
                   scale: 1.05,
-                  rotateX: 5,
-                  rotateY: -5,
-                  rotateZ: 2,
                   boxShadow: "0 20px 60px #A855F740",
                   z: 50
                 }}
@@ -442,20 +427,15 @@ const Hero = () => {
                 animate={{
                   opacity: 1,
                   y: [6, -6, 6],
-                  rotateX: [0, -2, 0],
                   z: 0
                 }}
                 className="absolute top-60 left-10 w-72 p-5 rounded-2xl backdrop-blur-md bg-white/8 border border-white/15"
                 transition={{
                   opacity: { duration: 0.6, delay: 1.2 },
                   y: { duration: 10, repeat: Infinity, ease: "easeInOut" },
-                  rotateX: { duration: 10, repeat: Infinity, ease: "easeInOut" }
                 }}
                 whileHover={{
                   scale: 1.05,
-                  rotateX: -5,
-                  rotateY: 5,
-                  rotateZ: -2,
                   boxShadow: "0 20px 60px #EC489940",
                   z: 50
                 }}
@@ -492,20 +472,15 @@ const Hero = () => {
                 animate={{
                   opacity: 1,
                   y: [-4, 4, -4],
-                  rotateX: [0, 1, 0],
                   z: 0
                 }}
                 className="absolute bottom-20 right-16 w-64 p-4 rounded-2xl backdrop-blur-md bg-white/8 border border-white/15"
                 transition={{
                   opacity: { duration: 0.6, delay: 1.6 },
                   y: { duration: 12, repeat: Infinity, ease: "easeInOut" },
-                  rotateX: { duration: 12, repeat: Infinity, ease: "easeInOut" }
                 }}
                 whileHover={{
                   scale: 1.05,
-                  rotateX: 3,
-                  rotateY: -3,
-                  rotateZ: 1,
                   boxShadow: "0 20px 60px #3B82F640",
                   z: 50
                 }}
@@ -543,19 +518,14 @@ const Hero = () => {
                 animate={{
                   rotate: [0, 360],
                   scale: [1, 1.2, 1],
-                  rotateX: [0, 10, 0],
-                  rotateY: [0, 15, 0]
                 }}
                 transition={{
                   rotate: { duration: 30, repeat: Infinity, ease: "linear" },
                   scale: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-                  rotateX: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-                  rotateY: { duration: 10, repeat: Infinity, ease: "easeInOut" }
                 }}
                 whileHover={{ 
                   scale: 1.3, 
                   filter: "blur(1px)",
-                  rotateZ: 10
                 }}
               />
 
@@ -568,12 +538,10 @@ const Hero = () => {
                 animate={{
                   scale: [1, 1.4, 1],
                   opacity: [0.8, 1, 0.8],
-                  rotateZ: [0, 180, 360],
                 }}
                 transition={{
                   scale: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                   opacity: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                  rotateZ: { duration: 8, repeat: Infinity, ease: "linear" }
                 }}
                 whileHover={{ 
                   boxShadow: "0 0 80px rgba(168, 85, 247, 1)",
