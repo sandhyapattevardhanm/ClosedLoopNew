@@ -2,11 +2,10 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import Features from '../components/Features';
 import About from '../components/About';
+import Services from '../components/Services';
 import WhyChooseUs from '../components/WhyChooseUs';
-import HowItWorks from '../components/HowItWorks';
-import PricingPlans from '../components/PricingPlans';
+import Values from '../components/Values';
 import Testimonials from '../components/Testimonials';
 import Team from '../components/Team';
 import Newsletter from '../components/Newsletter';
@@ -14,14 +13,13 @@ import Footer from '../components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#0D0D0D]">
       <Navbar />
       <Hero />
-      <Features />
       <About />
+      <Services />
       <WhyChooseUs />
-      <HowItWorks />
-      <PricingPlans />
+      <Values />
       <Testimonials />
       <Team />
       <Newsletter />
