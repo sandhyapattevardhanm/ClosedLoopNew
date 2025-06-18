@@ -32,7 +32,7 @@ const Hero = () => {
     console.log(container);
   }, []);
 
-  // Enhanced motion variants with proper ease format
+  // Fixed motion variants with proper easing
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -52,7 +52,7 @@ const Hero = () => {
       filter: "blur(0px)",
       transition: {
         duration: 0.4,
-        ease: "easeOut"
+        ease: [0.6, 0.05, -0.01, 0.9]
       }
     }
   };
@@ -356,7 +356,7 @@ const Hero = () => {
                   transition={{ 
                     delay: 1.2 + stat.delay,
                     duration: 0.4,
-                    ease: "easeOut"
+                    ease: [0.6, 0.05, -0.01, 0.9]
                   }}
                   whileHover={{ 
                     scale: 1.08,
