@@ -1,32 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
+  const updateMousePosition = useCallback((e: MouseEvent) => {
+    setMousePosition({ x: e.clientX, y: e.clientY });
+  }, []);
+
+  const handleMouseEnter = useCallback((e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (target.tagName === 'BUTTON' || target.tagName === 'A' || target.closest('button') || target.closest('a')) {
+      setIsHovering(true);
+    } else {
+      setIsHovering(false);
+    }
+  }, []);
+
   useEffect(() => {
-    const updateMousePosition = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleMouseEnter = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName === 'BUTTON' || target.tagName === 'A' || target.closest('button') || target.closest('a')) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
-      }
-    };
-
-    document.addEventListener('mousemove', updateMousePosition);
-    document.addEventListener('mouseover', handleMouseEnter);
+    document.addEventListener('mousemove', updateMousePosition, { passive: true });
+    document.addEventListener('mouseover', handleMouseEnter, { passive: true });
 
     return () => {
       document.removeEventListener('mousemove', updateMousePosition);
       document.removeEventListener('mouseover', handleMouseEnter);
     };
-  }, []);
+  }, [updateMousePosition, handleMouseEnter]);
 
   return (
     <>
@@ -40,9 +40,13 @@ const CustomCursor = () => {
         }}
         transition={{
           type: "spring",
-          stiffness: 500,
-          damping: 28,
+          stiffness: 150,
+          damping: 15,
           mass: 0.1,
+          restDelta: 0.001,
+        }}
+        style={{
+          willChange: 'transform',
         }}
       />
 
@@ -60,8 +64,12 @@ const CustomCursor = () => {
           exit={{ scale: 0, opacity: 0 }}
           transition={{
             type: "spring",
-            stiffness: 400,
-            damping: 30,
+            stiffness: 200,
+            damping: 20,
+            restDelta: 0.001,
+          }}
+          style={{
+            willChange: 'transform',
           }}
         />
       )}

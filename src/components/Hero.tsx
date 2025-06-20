@@ -56,7 +56,7 @@ const Hero = () => {
   };
 
   return (
-    <section ref={ref} id="home" className="relative h-screen flex items-center overflow-hidden bg-[#0D0D0D] px-4 sm:px-6 lg:px-10">
+    <section ref={ref} id="home" className="relative h-screen flex items-center overflow-hidden bg-[#0D0D0D] px-4 sm:px-6 lg:px-10 pt-20">
       {/* Simple Background Video */}
       {/* <video
         autoPlay

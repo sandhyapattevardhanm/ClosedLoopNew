@@ -39,8 +39,8 @@ const Navbar = () => {
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-[#0D0D0D]/95 backdrop-blur-md border-b border-white/10 shadow-lg' 
-          : 'bg-transparent'
+          ? 'bg-black/90 backdrop-blur-xl border-b border-white/20 shadow-2xl' 
+          : 'bg-black/80 backdrop-blur-lg border-b border-white/10'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,6 +49,7 @@ const Navbar = () => {
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
+            className="relative z-10"
           >
             <Link to="/" className="flex items-center">
               <img 
@@ -116,7 +117,7 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <motion.div
-            className="md:hidden"
+            className="md:hidden relative z-10"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
@@ -138,7 +139,7 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-[#0D0D0D]/95 backdrop-blur-md border-t border-white/10"
+            className="md:hidden bg-black/95 backdrop-blur-xl border-t border-white/20"
           >
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item, index) => (
@@ -167,7 +168,7 @@ const Navbar = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
-                className="pt-4 border-t border-white/10 space-y-3"
+                className="pt-4 border-t border-white/20 space-y-3"
               >
                 <a 
                   href="tel:+15551234567"
