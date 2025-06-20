@@ -57,6 +57,17 @@ const Hero = () => {
 
   return (
     <section ref={ref} id="home" className="relative h-screen flex items-center overflow-hidden bg-[#0D0D0D] px-4 sm:px-6 lg:px-10">
+      {/* Simple Background Video */}
+      {/* <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
+      >
+        <source src="public/loops BG blurred.mp4" type="video/mp4" />
+      </video> */}
+
       {/* Enhanced Interactive Particles */}
       <Particles
         id="tsparticles"
@@ -294,7 +305,7 @@ const Hero = () => {
                   size="lg" 
                   className="group bg-[#3B82F6] hover:bg-[#2563EB] hover:shadow-[0_0_20px_#60A5FA] text-white px-8 py-6 text-lg font-semibold border-0 rounded-xl transition-all duration-300"
                 >
-                  Discover Talent
+                  Book Tickets
                   <motion.div
                     className="ml-2"
                     animate={{ x: [0, 6, 0] }}
@@ -375,7 +386,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Enhanced 3D Card Stack - Updated Colors */}
+          {/* Right Content - Enhanced 3D Card Stack */}
           <motion.div 
             className="relative hidden lg:block"
             style={{ y: smoothYCards }}
@@ -400,7 +411,7 @@ const Hero = () => {
                 }}
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0 20px 60px rgba(96, 165, 250, 0.4)",
+                  boxShadow: "0 20px 60px rgba(6, 182, 212, 0.4)",
                   z: 50
                 }}
                 style={{ transformStyle: "preserve-3d" }}
@@ -482,13 +493,13 @@ const Hero = () => {
                 }}
                 whileHover={{
                   scale: 1.05,
-                  boxShadow: "0 20px 60px rgba(6, 182, 212, 0.4)",
+                  boxShadow: "0 20px 60px rgba(96, 165, 250, 0.4)",
                   z: 50
                 }}
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="w-6 h-6 bg-gradient-to-r from-[#06B6D4] to-[#60A5FA] rounded-full flex items-center justify-center">
+                  <div className="w-6 h-6 bg-gradient-to-r from-[#60A5FA] to-[#3B82F6] rounded-full flex items-center justify-center">
                     <Music className="w-3 h-3 text-white" />
                   </div>
                   <div className="text-white font-medium text-xs">Talent Network</div>

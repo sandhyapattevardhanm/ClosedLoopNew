@@ -1,36 +1,36 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import About from '../components/About';
-import Features from '../components/Features';
-import Services from '../components/Services';
-import HowItWorks from '../components/HowItWorks';
-import Testimonials from '../components/Testimonials';
-import Team from '../components/Team';
-import Values from '../components/Values';
-import WhyChooseUs from '../components/WhyChooseUs';
-import Newsletter from '../components/Newsletter';
-import Footer from '../components/Footer';
-import FloatingElements from '../components/FloatingElements';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import About from '@/components/About';
+import Services from '@/components/Services';
+import Features from '@/components/Features';
+import HowItWorks from '@/components/HowItWorks';
+import WhyChooseUs from '@/components/WhyChooseUs';
+import Values from '@/components/Values';
+import Team from '@/components/Team';
+import Testimonials from '@/components/Testimonials';
+import Newsletter from '@/components/Newsletter';
+import Footer from '@/components/Footer';
+import PageTransition from '@/components/PageTransition';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <FloatingElements />
-      <Navbar />
-      <Hero />
-      <About />
-      <Features />
-      <Services />
-      <HowItWorks />
-      <Testimonials />
-      <Team />
-      <Values />
-      <WhyChooseUs />
-      <Newsletter />
-      <Footer />
-    </div>
+    <PageTransition>
+      <div className="min-h-screen bg-[#0D0D0D]">
+        <Navbar />
+        <Hero />
+        <About />
+        <Services />
+        <Features />
+        <HowItWorks />
+        <WhyChooseUs />
+        <Values />
+        <Team />
+        <Testimonials />
+        <Newsletter />
+        <Footer />
+      </div>
+    </PageTransition>
   );
 };
 

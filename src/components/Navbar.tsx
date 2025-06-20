@@ -50,11 +50,12 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.2 }}
           >
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#60A5FA] to-[#3B82F6] rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-lg">CL</span>
-              </div>
-              <span className="text-2xl font-light text-white">ClosedLoop</span>
+            <Link to="/" className="flex items-center">
+              <img 
+                src="/Blue Logo no bg.png" 
+                alt="ClosedLoop Logo" 
+                className="h-12 w-auto"
+              />
             </Link>
           </motion.div>
 

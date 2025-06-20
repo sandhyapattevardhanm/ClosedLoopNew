@@ -67,13 +67,16 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
   const [previousPath, setPreviousPath] = useState(location.pathname);
 
   useEffect(() => {
-    // Only trigger transition if path actually changed
-    if (location.pathname !== previousPath && previousPath !== '') {
+    // Scroll to top on every navigation
+    window.scrollTo(0, 0);
+    
+    // Trigger transition on every path change
+    if (location.pathname !== previousPath) {
       setIsLoading(true);
       
       const timer = setTimeout(() => {
         setIsLoading(false);
-      }, 800); // Much faster!
+      }, 800);
       
       return () => clearTimeout(timer);
     }
@@ -91,20 +94,20 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 overflow-hidden"
           >
-            {/* Stunning gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800" />
+            {/* Background matching the blue logo */}
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-blue-800" />
             
-            {/* Animated wave effect */}
+            {/* Animated wave effect in logo blue */}
             <motion.div
               className="absolute inset-0"
               initial={{ x: '-100%' }}
               animate={{ x: '100%' }}
               transition={{ duration: 0.6, ease: "easeInOut" }}
             >
-              <div className="w-full h-full bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+              <div className="w-full h-full bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
             </motion.div>
 
-            {/* Central explosion effect */}
+            {/* Central explosion effect in logo blue */}
             <div className="relative z-10 flex items-center justify-center h-full">
               <motion.div
                 className="relative"
@@ -119,8 +122,8 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
                   times: [0, 0.2, 0.5, 0.8, 1]
                 }}
               >
-                {/* Main circle */}
-                <div className="w-32 h-32 bg-gradient-to-br from-blue-500 via-cyan-400 to-blue-600 rounded-full flex items-center justify-center">
+                {/* Main circle in logo blue */}
+                <div className="w-32 h-32 bg-gradient-to-br from-blue-500 via-blue-400 to-blue-600 rounded-full flex items-center justify-center">
                   <motion.div
                     className="w-16 h-16 bg-white rounded-full"
                     animate={{ 
@@ -192,11 +195,11 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
               ))}
             </div>
 
-            {/* Energy rings */}
+            {/* Energy rings in logo blue */}
             {[...Array(3)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute top-1/2 left-1/2 border border-blue-400/30 rounded-full"
+                className="absolute top-1/2 left-1/2 border border-blue-400/40 rounded-full"
                 style={{
                   width: `${80 + i * 40}px`,
                   height: `${80 + i * 40}px`,
@@ -215,15 +218,15 @@ const PageTransition: React.FC<PageTransitionProps> = ({ children }) => {
               />
             ))}
 
-            {/* Edge glow effect */}
+            {/* Edge glow effect in logo blue */}
             <motion.div
               className="absolute inset-0"
               initial={{ opacity: 0 }}
               animate={{ opacity: [0, 0.5, 0] }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-transparent to-cyan-400/20" />
-              <div className="absolute inset-0 bg-gradient-to-b from-blue-500/20 via-transparent to-cyan-400/20" />
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-transparent to-blue-400/30" />
+              <div className="absolute inset-0 bg-gradient-to-b from-blue-500/30 via-transparent to-blue-400/30" />
             </motion.div>
           </motion.div>
         )}

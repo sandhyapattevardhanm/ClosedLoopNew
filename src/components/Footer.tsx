@@ -47,11 +47,12 @@ const Footer = () => {
             viewport={{ once: true }}
             className="lg:col-span-1"
           >
-            <Link to="/" className="flex items-center space-x-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#60A5FA] to-[#3B82F6] rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-lg">CL</span>
-              </div>
-              <span className="text-2xl font-light text-white">ClosedLoop</span>
+            <Link to="/" className="flex items-center mb-6">
+              <img 
+                src="/Blue Logo no bg.png" 
+                alt="ClosedLoop Logo" 
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Transforming the entertainment industry through innovative artist management and cutting-edge event production.
