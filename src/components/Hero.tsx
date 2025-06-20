@@ -1,4 +1,3 @@
-
 import React, { useCallback, useRef } from 'react';
 import { ArrowRight, Play, Music, Users, Calendar } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -200,15 +199,15 @@ const Hero = () => {
             background: "radial-gradient(circle, #06B6D4 0%, transparent 80%)"
           }}
           animate={{
-            rotate: [0, -360],
-            scale: [1, 1.3, 1],
             x: [-10, 10, -10],
+            scale: [1, 1.1, 1],
+            rotate: [0, 90, 180, 270, 360],
           }}
           transition={{
-            duration: 30,
+            duration: 15,
             repeat: Infinity,
             ease: "linear",
-            delay: 10
+            delay: 2
           }}
         />
       </div>
@@ -244,7 +243,8 @@ const Hero = () => {
                   transition={{ 
                     duration: 3, 
                     repeat: Infinity, 
-                    repeatDelay: 2
+                    repeatDelay: 2,
+                    ease: "easeInOut"
                   }}
                 >
                   <Music className="w-4 h-4" />
@@ -298,7 +298,7 @@ const Hero = () => {
                   <motion.div
                     className="ml-2"
                     animate={{ x: [0, 6, 0] }}
-                    transition={{ duration: 2, repeat: Infinity }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                   >
                     <ArrowRight className="h-5 w-5" />
                   </motion.div>
@@ -363,7 +363,8 @@ const Hero = () => {
                     transition={{ 
                       duration: 4, 
                       repeat: Infinity, 
-                      delay: index * 0.8 
+                      delay: index * 0.8,
+                      ease: "easeInOut"
                     }}
                   >
                     {stat.value}
@@ -395,7 +396,7 @@ const Hero = () => {
                 className="absolute top-20 right-0 w-80 p-6 rounded-2xl glass-card"
                 transition={{
                   opacity: { duration: 0.6, delay: 0.8 },
-                  y: { duration: 8, repeat: Infinity },
+                  y: { duration: 8, repeat: Infinity, ease: "easeInOut" },
                 }}
                 whileHover={{
                   scale: 1.05,
@@ -432,7 +433,7 @@ const Hero = () => {
                 className="absolute top-60 left-10 w-72 p-5 rounded-2xl glass-card"
                 transition={{
                   opacity: { duration: 0.6, delay: 1.2 },
-                  y: { duration: 10, repeat: Infinity },
+                  y: { duration: 10, repeat: Infinity, ease: "easeInOut" },
                 }}
                 whileHover={{
                   scale: 1.05,
@@ -477,7 +478,7 @@ const Hero = () => {
                 className="absolute bottom-20 right-16 w-64 p-4 rounded-2xl glass-card"
                 transition={{
                   opacity: { duration: 0.6, delay: 1.6 },
-                  y: { duration: 12, repeat: Infinity },
+                  y: { duration: 12, repeat: Infinity, ease: "easeInOut" },
                 }}
                 whileHover={{
                   scale: 1.05,
@@ -521,7 +522,7 @@ const Hero = () => {
                 }}
                 transition={{
                   rotate: { duration: 30, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 6, repeat: Infinity },
+                  scale: { duration: 6, repeat: Infinity, ease: "easeInOut" },
                 }}
                 whileHover={{ 
                   scale: 1.3, 
@@ -540,8 +541,8 @@ const Hero = () => {
                   opacity: [0.8, 1, 0.8],
                 }}
                 transition={{
-                  scale: { duration: 4, repeat: Infinity },
-                  opacity: { duration: 4, repeat: Infinity },
+                  scale: { duration: 4, repeat: Infinity, ease: "easeInOut" },
+                  opacity: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                 }}
                 whileHover={{ 
                   boxShadow: "0 0 80px rgba(96, 165, 250, 1)",
@@ -557,7 +558,7 @@ const Hero = () => {
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block cursor-pointer"
         animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 2.5, repeat: Infinity }}
+        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
         whileHover={{ 
           scale: 1.2, 
           y: 0,
@@ -576,7 +577,8 @@ const Hero = () => {
             }}
             transition={{ 
               duration: 2.5, 
-              repeat: Infinity
+              repeat: Infinity,
+              ease: "easeInOut"
             }}
           />
         </div>

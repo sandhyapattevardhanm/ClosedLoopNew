@@ -1,106 +1,198 @@
-
 import React, { useState } from 'react';
-import { ArrowRight, Mail } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { motion } from 'framer-motion';
+import { Mail, Sparkles, PartyPopper, Music, Star } from 'lucide-react';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { useToast } from './ui/use-toast';
 
 const Newsletter = () => {
   const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Newsletter signup:', email);
-    setEmail('');
-    // Handle newsletter signup
+    if (!email) return;
+
+    setIsSubmitting(true);
+    
+    // Simulate API call
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setEmail('');
+      toast({
+        title: "🎉 You're in the loop!",
+        description: "Get ready for some amazing entertainment updates and exclusive behind-the-scenes content!",
+      });
+    }, 1000);
   };
 
+  const emojis = ['🎭', '🎪', '🎨', '🎬', '🎤', '🎧', '🎹', '🎸', '🥁', '🎪'];
+  const [currentEmoji, setCurrentEmoji] = useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentEmoji(prev => (prev + 1) % emojis.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section id="contact" className="relative py-20 bg-[#0D0D0D] overflow-hidden">
-      {/* Enhanced Ambient Background */}
-      <div className="absolute inset-0">
-        <div className="absolute w-[500px] h-[500px] bg-gradient-to-r from-[#60A5FA]/30 to-[#3B82F6]/20 rounded-full blur-3xl top-[10%] left-[50%] transform -translate-x-1/2 z-[-1] animate-pulse" />
-        <div className="absolute w-[300px] h-[300px] bg-[#60A5FA]/15 rounded-full blur-3xl bottom-[20%] right-[10%] z-[-1] animate-pulse" style={{ animationDelay: '2s' }} />
-      </div>
+    <section className="py-20 bg-gradient-to-br from-purple-900 via-pink-900 to-indigo-900 relative overflow-hidden">
+      {/* Floating elements */}
+      <motion.div
+        className="absolute top-10 left-10 text-4xl opacity-20"
+        animate={{ 
+          y: [0, -20, 0],
+          rotate: [0, 10, -10, 0]
+        }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      >
+        🎭
+      </motion.div>
+      
+      <motion.div
+        className="absolute top-20 right-20 text-3xl opacity-20"
+        animate={{ 
+          y: [0, 15, 0],
+          rotate: [0, -15, 15, 0]
+        }}
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1
+        }}
+      >
+        🎪
+      </motion.div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <div className="mb-8">
-            <motion.div 
-              className="w-20 h-20 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center mx-auto mb-6 glass-card"
-              whileHover={{ scale: 1.1, boxShadow: "0 0 30px rgba(96, 165, 250, 0.5)" }}
-            >
-              <Mail className="h-10 w-10 text-[#60A5FA]" />
-            </motion.div>
-            <h2 className="text-4xl md:text-5xl font-light mb-6 tracking-tight">
-              <span className="text-transparent bg-gradient-to-r from-[#60A5FA] to-[#3B82F6] bg-clip-text animate-shimmer bg-[length:400%_100%]">
-                Ready to Get Started?
-              </span>
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8 leading-relaxed">
-              Join thousands of satisfied customers who trust us with their business. 
-              Subscribe to our newsletter for the latest updates and insights.
-            </p>
-          </div>
+      <motion.div
+        className="absolute bottom-20 left-20 text-2xl opacity-20"
+        animate={{ 
+          x: [0, 10, 0],
+          rotate: [0, 360]
+        }}
+        transition={{
+          duration: 5,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+      >
+        ⭐
+      </motion.div>
 
-          <motion.form 
-            onSubmit={handleSubmit} 
-            className="max-w-md mx-auto mb-12"
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
+          >
+            <div className="flex items-center justify-center mb-4">
+              <motion.div
+                className="text-6xl mr-4"
+                animate={{ 
+                  scale: [1, 1.2, 1],
+                  rotate: [0, 10, -10, 0]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                {emojis[currentEmoji]}
+              </motion.div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white">
+                Join the 
+                <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                  {" "}Fun Zone!
+                </span>
+              </h2>
+            </div>
+            
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Be the first to know about our latest shows, exclusive events, and behind-the-scenes magic! 
+              <br />
+              <span className="text-pink-300 font-semibold">No spam, just pure entertainment! 🎉</span>
+            </p>
+          </motion.div>
+
+          <motion.form
+            onSubmit={handleSubmit}
+            className="max-w-md mx-auto"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="flex flex-col sm:flex-row gap-4">
-              <Input
-                type="email"
-                placeholder="Enter your email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-[#60A5FA] backdrop-blur-md"
-              />
-              <Button 
-                type="submit" 
-                className="bg-[#3B82F6] hover:bg-[#2563EB] hover:shadow-[0_0_20px_#60A5FA] text-white px-6 py-3 rounded-xl transition-all duration-300"
+              <div className="relative flex-1">
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Input
+                  type="email"
+                  placeholder="Enter your email for magic updates ✨"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="pl-10 pr-4 py-3 bg-white/10 border-white/20 text-white placeholder-gray-400 rounded-full focus:ring-2 focus:ring-pink-400 focus:border-transparent"
+                  required
+                />
+              </div>
+              
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Subscribe
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  {isSubmitting ? (
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    >
+                      <Sparkles className="w-5 h-5" />
+                    </motion.div>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <PartyPopper className="w-5 h-5" />
+                      Join the Party!
+                    </div>
+                  )}
+                </Button>
+              </motion.div>
             </div>
           </motion.form>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            {[
-              { title: "Contact Us", line1: "hello@closedloop.com", line2: "+1 (555) 123-4567" },
-              { title: "Visit Us", line1: "123 Innovation Street", line2: "Tech City, TC 12345" },
-              { title: "Follow Us", line1: "Stay connected on social", line2: "@closedloop" }
-            ].map((contact, index) => (
-              <motion.div
-                key={index}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-6 glass-card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileHover={{ 
-                  scale: 1.02, 
-                  boxShadow: "0 0 20px rgba(96, 165, 250, 0.2)" 
-                }}
-                viewport={{ once: true }}
-              >
-                <div className="text-xl font-light text-transparent bg-gradient-to-r from-[#60A5FA] to-[#3B82F6] bg-clip-text mb-2">{contact.title}</div>
-                <p className="text-gray-400 text-sm">{contact.line1}</p>
-                <p className="text-gray-400 text-sm">{contact.line2}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-8 text-gray-400 text-sm"
+          >
+            <div className="flex items-center justify-center gap-4 flex-wrap">
+              <div className="flex items-center gap-2">
+                <Star className="w-4 h-4 text-yellow-400" />
+                <span>Exclusive content</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Music className="w-4 h-4 text-pink-400" />
+                <span>Early access</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-purple-400" />
+                <span>Special offers</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

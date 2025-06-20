@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 0 0% 5%;
-    --foreground: 210 20% 82%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
 
-    --card: 0 0% 12%;
-    --card-foreground: 210 20% 82%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 210 20% 82%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 5%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 210 20% 82%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 210 15% 46%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 217 91% 60%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 217 91% 60%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
 
     --radius: 0.5rem;
 
@@ -55,36 +54,43 @@
     --text-muted: 210 15% 46%;
     --text-subtle: 220 9% 46%; /* #9CA3AF */
     --glow-blue: 217 91% 60%;
+
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
   }
 
   .dark {
-    --background: 0 0% 5%;
-    --foreground: 210 20% 82%;
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 12%;
-    --card-foreground: 210 20% 82%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 210 20% 82%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 0 0% 5%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
 
-    --secondary: 0 0% 12%;
-    --secondary-foreground: 210 20% 82%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 210 15% 46%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217 91% 60%;
-    --accent-foreground: 0 0% 5%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 217 91% 60%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+
     --sidebar-background: 0 0% 8%;
     --sidebar-foreground: 210 20% 82%;
     --sidebar-primary: 217 91% 60%;
@@ -93,6 +99,12 @@
     --sidebar-accent-foreground: 210 20% 82%;
     --sidebar-border: 0 0% 18%;
     --sidebar-ring: 217 91% 60%;
+
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
@@ -102,8 +114,16 @@
   }
 
   body {
-    @apply bg-[#0D0D0D] text-[#D1D5DB] font-sans;
+    @apply bg-background text-foreground;
+    cursor: none; /* Hide default cursor */
     overflow-x: hidden;
+  }
+
+  /* Show default cursor for mobile devices */
+  @media (max-width: 768px) {
+    body {
+      cursor: auto;
+    }
   }
 
   /* Devin.ai inspired glow effects */
@@ -129,29 +149,22 @@
 
   .glass-card {
     background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(25px);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
 
   /* Enhanced shimmer animation for Devin.ai style */
   @keyframes shimmer {
-    0% { 
-      background-position: -200% center;
-      opacity: 0.8;
+    0% {
+      background-position: -200% 0;
     }
-    50% {
-      opacity: 1;
-    }
-    100% { 
-      background-position: 200% center;
-      opacity: 0.8;
+    100% {
+      background-position: 200% 0;
     }
   }
 
   .animate-shimmer {
-    animation: shimmer 3s ease-in-out infinite;
-    background-size: 400% 100%;
+    animation: shimmer 2s linear infinite;
   }
 
   /* Enhanced floating animation with organic motion */
@@ -219,6 +232,24 @@
     .floating-particle {
       animation: none !important;
     }
+  }
+
+  /* Custom cursor styles */
+  .custom-cursor {
+    cursor: none;
+  }
+  
+  /* Ensure interactive elements work with custom cursor */
+  button, a, input, textarea, select {
+    cursor: none;
+  }
+
+  /* Line clamp utility */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 }
 

@@ -1,157 +1,214 @@
-
 import React from 'react';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   const footerLinks = {
     company: [
-      { name: 'About Us', href: '#about' },
-      { name: 'Our Team', href: '#team' },
-      { name: 'Careers', href: '#' },
-      { name: 'Contact', href: '#contact' }
+      { name: 'About Us', path: '/about' },
+      { name: 'Our Team', path: '/about' },
+      { name: 'Careers', path: '/contact' },
+      { name: 'Press', path: '/contact' }
     ],
     services: [
-      { name: 'Artist Management', href: '#services' },
-      { name: 'Event Production', href: '#services' },
-      { name: 'Talent Network', href: '#' },
-      { name: 'Support', href: '#' }
+      { name: 'Artist Management', path: '/services' },
+      { name: 'Event Production', path: '/services' },
+      { name: 'Talent Booking', path: '/services' },
+      { name: 'Brand Partnerships', path: '/services' }
     ],
-    resources: [
-      { name: 'Documentation', href: '#' },
-      { name: 'Blog', href: '#' },
-      { name: 'Help Center', href: '#' },
-      { name: 'API', href: '#' }
+    support: [
+      { name: 'Help Center', path: '/contact' },
+      { name: 'Contact Us', path: '/contact' },
+      { name: 'Privacy Policy', path: '/contact' },
+      { name: 'Terms of Service', path: '/contact' }
     ]
   };
 
-  const scrollToSection = (sectionId: string) => {
-    if (sectionId.startsWith('#')) {
-      const element = document.getElementById(sectionId.substring(1));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
-
-  const socialIcons = [
-    { icon: Facebook, href: '#' },
-    { icon: Twitter, href: '#' },
-    { icon: Linkedin, href: '#' },
-    { icon: Instagram, href: '#' }
+  const socialLinks = [
+    { icon: Facebook, href: '#', label: 'Facebook' },
+    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Linkedin, href: '#', label: 'LinkedIn' },
+    { icon: Youtube, href: '#', label: 'YouTube' }
   ];
 
   return (
-    <footer className="relative bg-[#0D0D0D] text-white border-t border-white/10 overflow-hidden">
-      {/* Ambient Background */}
-      <div className="absolute inset-0">
-        <div className="absolute w-[600px] h-[300px] bg-gradient-to-r from-[#60A5FA]/10 to-[#3B82F6]/5 rounded-full blur-3xl top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 z-[-1]" />
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-          <motion.div 
-            className="lg:col-span-2"
+    <footer className="bg-[#0D0D0D] border-t border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="lg:col-span-1"
           >
-            <h3 className="text-2xl font-light mb-6 tracking-tight">
-              <span className="text-transparent bg-gradient-to-r from-[#60A5FA] to-[#3B82F6] bg-clip-text">
-                ClosedLoop
-              </span>
-            </h3>
+            <Link to="/" className="flex items-center space-x-2 mb-6">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#60A5FA] to-[#3B82F6] rounded-xl flex items-center justify-center">
+                <span className="text-white font-bold text-lg">CL</span>
+              </div>
+              <span className="text-2xl font-light text-white">ClosedLoop</span>
+            </Link>
             <p className="text-gray-400 mb-6 leading-relaxed">
-              Transforming entertainment through innovative artist management and event production. 
-              We're committed to delivering exceptional experiences that elevate tomorrow's stars.
+              Transforming the entertainment industry through innovative artist management and cutting-edge event production.
             </p>
-            <div className="flex space-x-4">
-              {socialIcons.map((social, index) => {
-                const IconComponent = social.icon;
-                return (
-                  <motion.a 
-                    key={index}
-                    href={social.href} 
-                    className="text-gray-400 hover:text-[#60A5FA] transition-colors duration-200"
-                    whileHover={{ scale: 1.2, y: -2 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <IconComponent className="h-6 w-6" />
-                  </motion.a>
-                );
-              })}
+            
+            {/* Contact Info */}
+            <div className="space-y-3">
+              <motion.div
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+                className="flex items-center space-x-3 text-gray-400 hover:text-[#60A5FA] transition-colors"
+              >
+                <Mail className="h-4 w-4" />
+                <span className="text-sm">hello@closedloop.com</span>
+              </motion.div>
+              <motion.div
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+                className="flex items-center space-x-3 text-gray-400 hover:text-[#60A5FA] transition-colors"
+              >
+                <Phone className="h-4 w-4" />
+                <span className="text-sm">+1 (555) 123-4567</span>
+              </motion.div>
+              <motion.div
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+                className="flex items-center space-x-3 text-gray-400 hover:text-[#60A5FA] transition-colors"
+              >
+                <MapPin className="h-4 w-4" />
+                <span className="text-sm">Los Angeles, CA</span>
+              </motion.div>
             </div>
           </motion.div>
 
-          {Object.entries(footerLinks).map(([category, links], categoryIndex) => (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 * (categoryIndex + 1) }}
-              viewport={{ once: true }}
-            >
-              <h4 className="text-lg font-light text-white mb-6 capitalize">{category}</h4>
-              <ul className="space-y-3">
-                {links.map((link, index) => (
-                  <li key={index}>
-                    <motion.button
-                      onClick={() => scrollToSection(link.href)}
-                      className="text-gray-400 hover:text-white transition-colors duration-200 text-left"
-                      whileHover={{ x: 5 }}
-                    >
-                      {link.name}
-                    </motion.button>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
+          {/* Company Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-lg font-light text-white mb-6">Company</h3>
+            <ul className="space-y-3">
+              {footerLinks.company.map((link, index) => (
+                <motion.li
+                  key={link.name}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Link
+                    to={link.path}
+                    className="text-gray-400 hover:text-[#60A5FA] transition-colors duration-200 text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Services Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-lg font-light text-white mb-6">Services</h3>
+            <ul className="space-y-3">
+              {footerLinks.services.map((link, index) => (
+                <motion.li
+                  key={link.name}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Link
+                    to={link.path}
+                    className="text-gray-400 hover:text-[#60A5FA] transition-colors duration-200 text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Support Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-lg font-light text-white mb-6">Support</h3>
+            <ul className="space-y-3">
+              {footerLinks.support.map((link, index) => (
+                <motion.li
+                  key={link.name}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Link
+                    to={link.path}
+                    className="text-gray-400 hover:text-[#60A5FA] transition-colors duration-200 text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
         </div>
 
-        <motion.div 
-          className="border-t border-white/10 mt-12 pt-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+        {/* Bottom Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
+          className="border-t border-white/10 mt-12 pt-8"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { icon: Mail, text: "hello@closedloop.com" },
-              { icon: Phone, text: "+1 (555) 123-4567" },
-              { icon: MapPin, text: "Tech City, TC 12345" }
-            ].map((contact, index) => {
-              const IconComponent = contact.icon;
-              return (
-                <motion.div 
-                  key={index}
-                  className="flex items-center space-x-3"
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <IconComponent className="h-5 w-5 text-[#60A5FA]" />
-                  <span className="text-gray-400">{contact.text}</span>
-                </motion.div>
-              );
-            })}
-          </div>
-          
-          <div className="flex flex-col md:flex-row justify-between items-center mt-8 pt-8 border-t border-white/10">
-            <p className="text-gray-500 text-sm">
-              © 2024 ClosedLoop. All rights reserved.
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-400 text-sm">
+              © {currentYear} ClosedLoop. All rights reserved.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((policy, index) => (
-                <motion.a 
-                  key={index}
-                  href="#" 
-                  className="text-gray-500 hover:text-white text-sm transition-colors duration-200"
-                  whileHover={{ y: -1 }}
-                >
-                  {policy}
-                </motion.a>
-              ))}
+            
+            {/* Social Links */}
+            <div className="flex space-x-4">
+              {socialLinks.map((social, index) => {
+                const IconComponent = social.icon;
+                return (
+                  <motion.a
+                    key={social.label}
+                    href={social.href}
+                    initial={{ opacity: 0, scale: 0 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ 
+                      scale: 1.2, 
+                      color: '#60A5FA',
+                      y: -2 
+                    }}
+                    transition={{ duration: 0.2 }}
+                    className="text-gray-400 hover:text-[#60A5FA] transition-colors duration-200"
+                    aria-label={social.label}
+                  >
+                    <IconComponent className="h-5 w-5" />
+                  </motion.a>
+                );
+              })}
             </div>
           </div>
         </motion.div>
