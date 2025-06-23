@@ -101,9 +101,9 @@ const Services = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-light mb-6 tracking-tight">
-            <span className="text-gray-300">Our</span>
+            <span className="text-gray-300">What</span>
             <span className="block text-transparent bg-gradient-to-r from-[#60A5FA] to-[#3B82F6] bg-clip-text animate-shimmer bg-[length:400%_100%]">
-              Services
+              We Offer
             </span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
@@ -120,9 +120,9 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.015,
-                boxShadow: "0 0 30px rgba(96, 165, 250, 0.3)" 
+                boxShadow: "0 0 30px rgba(96, 165, 250, 0.3)"
               }}
               className="group bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 glass-card"
             >

@@ -69,7 +69,7 @@ const Values = () => {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.015,
                 boxShadow: "0 0 30px rgba(96, 165, 250, 0.3)"
               }}
@@ -96,29 +96,6 @@ const Values = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-16"
-        >
-          <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-            These values aren't just words on a page—they're the foundation of every partnership, every performance, and every moment we create.
-          </p>
-          <motion.button
-            whileHover={{ 
-              scale: 1.05,
-              boxShadow: "0 0 30px rgba(96, 165, 250, 0.5)"
-            }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-[#3B82F6] hover:bg-[#2563EB] hover:shadow-[0_0_20px_#60A5FA] text-white font-light px-8 py-4 rounded-xl transition-all duration-300"
-          >
-            Experience Our Values in Action
-          </motion.button>
-        </motion.div>
       </div>
     </section>
   );

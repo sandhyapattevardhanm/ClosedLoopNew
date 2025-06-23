@@ -66,10 +66,10 @@ const Team = () => {
   };
 
   const cardVariants = {
-    hidden: { 
-      opacity: 0, 
+    hidden: {
+      opacity: 0,
       y: 40,
-      scale: 0.95 
+      scale: 0.95
     },
     visible: {
       opacity: 1,
@@ -85,36 +85,34 @@ const Team = () => {
   };
 
   return (
-    <section ref={ref} id="team" className="py-20 bg-white">
+    <section ref={ref} id="team" className="py-20 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.5 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Meet Our
-            <span className="text-blue-600 animate-[shimmer_3s_infinite_linear] bg-gradient-to-r from-blue-600 via-blue-800 to-blue-600 bg-clip-text text-transparent bg-[length:400%_100%]"> Team</span>
+          <h2 className="text-4xl md:text-5xl font-light mb-6 tracking-tight">
+            <span className="text-gray-300">Meet</span>
+            <span className="block text-transparent bg-gradient-to-r from-[#60A5FA] to-[#3B82F6] bg-clip-text animate-shimmer bg-[length:400%_100%]">
+              Our Team
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our diverse team of experts brings together decades of experience in technology, 
-            design, and business strategy.
-          </p>
         </motion.div>
-
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           {teamMembers.map((member, index) => (
-            <motion.div 
-              key={index} 
+            <motion.div
+              key={index}
               variants={cardVariants}
               className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 group relative overflow-hidden border border-gray-100"
-              whileHover={{ 
+              whileHover={{
                 y: -10,
                 rotateZ: 1,
                 scale: 1.02,
@@ -139,11 +137,11 @@ const Team = () => {
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.5 }}
                 />
-                <motion.div 
+                <motion.div
                   className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   initial={false}
                 />
-                
+
                 {/* Floating particles on hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   {[...Array(3)].map((_, i) => (
@@ -167,9 +165,9 @@ const Team = () => {
                   ))}
                 </div>
               </div>
-              
+
               <div className="p-6 relative z-10">
-                <motion.h3 
+                <motion.h3
                   className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300"
                   whileHover={{ scale: 1.02 }}
                 >
@@ -177,7 +175,7 @@ const Team = () => {
                 </motion.h3>
                 <p className="text-blue-600 font-medium mb-3">{member.role}</p>
                 <p className="text-gray-600 text-sm mb-4">{member.bio}</p>
-                
+
                 <div className="flex space-x-3">
                   {[
                     { icon: Linkedin, href: member.social.linkedin },
@@ -186,12 +184,12 @@ const Team = () => {
                   ].map((social, socialIndex) => {
                     const IconComponent = social.icon;
                     return (
-                      <motion.a 
+                      <motion.a
                         key={socialIndex}
-                        href={social.href} 
+                        href={social.href}
                         className="text-gray-400 hover:text-blue-600 transition-colors duration-200"
-                        whileHover={{ 
-                          scale: 1.2, 
+                        whileHover={{
+                          scale: 1.2,
                           y: -2,
                           rotate: 5
                         }}
