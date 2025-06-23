@@ -37,11 +37,10 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-black/90 backdrop-blur-xl border-b border-white/20 shadow-2xl' 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+          ? 'bg-black/90 backdrop-blur-xl border-b border-white/20 shadow-2xl'
           : 'bg-black/80 backdrop-blur-lg border-b border-white/10'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
@@ -52,9 +51,9 @@ const Navbar = () => {
             className="relative z-10"
           >
             <Link to="/" className="flex items-center">
-              <img 
-                src="/Blue Logo no bg.png" 
-                alt="ClosedLoop Logo" 
+              <img
+                src="/Blue Logo no bg.png"
+                alt="ClosedLoop Logo"
                 className="h-12 w-auto"
               />
             </Link>
@@ -70,11 +69,10 @@ const Navbar = () => {
               >
                 <Link
                   to={item.path}
-                  className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 ${
-                    isActive(item.path)
+                  className={`relative px-3 py-2 text-sm font-medium transition-colors duration-200 ${isActive(item.path)
                       ? 'text-[#60A5FA]'
                       : 'text-gray-300 hover:text-white'
-                  }`}
+                    }`}
                 >
                   {item.name}
                   {isActive(item.path) && (
@@ -90,7 +88,7 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Contact Information */}
+          {/* Contact Information 
           <div className="hidden md:flex items-center space-x-4">
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -113,7 +111,7 @@ const Navbar = () => {
                 <span className="text-sm font-medium">hello@closedloop.com</span>
               </a>
             </motion.div>
-          </div>
+          </div> */}
 
           {/* Mobile menu button */}
           <motion.div
@@ -152,17 +150,16 @@ const Navbar = () => {
                   <Link
                     to={item.path}
                     onClick={() => setIsOpen(false)}
-                    className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
-                      isActive(item.path)
+                    className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${isActive(item.path)
                         ? 'text-[#60A5FA]'
                         : 'text-gray-300 hover:text-white'
-                    }`}
+                      }`}
                   >
                     {item.name}
                   </Link>
                 </motion.div>
               ))}
-              
+
               {/* Mobile Contact Info */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
@@ -170,14 +167,14 @@ const Navbar = () => {
                 transition={{ duration: 0.3, delay: navItems.length * 0.1 }}
                 className="pt-4 border-t border-white/20 space-y-3"
               >
-                <a 
+                <a
                   href="tel:+15551234567"
                   className="flex items-center space-x-3 text-gray-300 hover:text-[#60A5FA] transition-colors"
                 >
                   <Phone className="h-4 w-4" />
                   <span className="text-sm">+1 (555) 123-4567</span>
                 </a>
-                <a 
+                <a
                   href="mailto:hello@closedloop.com"
                   className="flex items-center space-x-3 text-gray-300 hover:text-[#60A5FA] transition-colors"
                 >
