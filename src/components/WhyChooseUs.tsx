@@ -34,6 +34,10 @@ const WhyChooseUs = () => {
     <section id="services" className="relative py-20 bg-[#0D0D0D] overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute inset-0">
+        <div className="absolute w-[400px] h-[400px] bg-[#60A5FA]/20 rounded-full blur-3xl top-10 left-1/3 animate-pulse" />
+        <div className="absolute w-[300px] h-[300px] bg-[#3B82F6]/15 rounded-full blur-3xl bottom-10 right-1/4 animate-pulse" style={{ animationDelay: '1.5s' }} />
+      </div>
+      <div className="absolute inset-0">
         <div className="absolute w-[350px] h-[350px] bg-[#3B82F6]/15 rounded-full blur-3xl top-[30%] right-[20%] z-[-1] animate-pulse" />
         <div
           className="absolute w-[250px] h-[250px] bg-[#60A5FA]/20 rounded-full blur-3xl bottom-[20%] left-[25%] z-[-1] animate-pulse"
