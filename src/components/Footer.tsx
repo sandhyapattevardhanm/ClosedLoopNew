@@ -29,9 +29,9 @@ const Footer = () => {
   };
 
   const socialLinks = [
+    { icon: Instagram, href: '#', label: 'Instagram' },
     { icon: Facebook, href: '#', label: 'Facebook' },
     { icon: XIcon, href: '#', label: 'X (Twitter)' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
     { icon: Youtube, href: '#', label: 'YouTube' }
   ];
@@ -46,7 +46,6 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="lg:col-span-1"
           >
             <Link to="/" className="flex items-center mb-6">
               <img
@@ -61,22 +60,37 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div className="space-y-3">
+              {/* Email */}
               <motion.div
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
                 className="flex items-center space-x-3 text-gray-400 hover:text-[#60A5FA] transition-colors"
               >
                 <Mail className="h-4 w-4" />
-                <span className="text-sm">hello@closedloop.com</span>
+                <a
+                  href="mailto:hello@closedloop.com"
+                  className="text-sm underline-offset-2 hover:underline"
+                >
+                  hello@closedloop.com
+                </a>
               </motion.div>
+
+              {/* Phone */}
               <motion.div
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
                 className="flex items-center space-x-3 text-gray-400 hover:text-[#60A5FA] transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                <span className="text-sm">+1 (123) 123-4567</span>
+                <a
+                  href="tel:+11231234567"
+                  className="text-sm underline-offset-2 hover:underline"
+                >
+                  +1 (123) 123-4567
+                </a>
               </motion.div>
+
+              {/* Location */}
               <motion.div
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
@@ -203,7 +217,6 @@ const Footer = () => {
                       color: '#60A5FA',
                       y: -2
                     }}
-                    transition={{ duration: 0.2 }}
                     className="text-gray-400 hover:text-[#60A5FA] transition-colors duration-200"
                     aria-label={social.label}
                   >

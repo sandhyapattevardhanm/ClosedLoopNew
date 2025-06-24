@@ -125,7 +125,7 @@ const TicketPage = () => {
     <div className="min-h-screen bg-[#0D0D0D]">
       <FloatingElements />
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0">
@@ -149,16 +149,23 @@ const TicketPage = () => {
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed mb-8">
               Secure your spot at the most exciting events. From intimate concerts to massive festivals, we've got you covered.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Badge variant="secondary" className="bg-[#60A5FA]/20 text-[#60A5FA] border-[#60A5FA]/30">
-                <Calendar className="h-4 w-4 mr-2" />
+            <div className="flex flex-wrap justify-center gap-6">
+              <Badge
+                variant="secondary"
+                className="bg-[#60A5FA]/20 text-[#60A5FA] border-[#60A5FA]/30 px-4 py-2 text-base"
+              >
+                <Calendar className="h-5 w-5 mr-2" />
                 Upcoming Events
               </Badge>
-              <Badge variant="secondary" className="bg-[#3B82F6]/20 text-[#3B82F6] border-[#3B82F6]/30">
-                <Ticket className="h-4 w-4 mr-2" />
+              <Badge
+                variant="secondary"
+                className="bg-[#3B82F6]/20 text-[#3B82F6] border-[#3B82F6]/30 px-4 py-2 text-base"
+              >
+                <Ticket className="h-5 w-5 mr-2" />
                 Instant Booking
               </Badge>
             </div>
+
           </motion.div>
         </div>
       </section>
@@ -190,8 +197,8 @@ const TicketPage = () => {
                 viewport={{ once: true }}
               >
                 <div className="relative overflow-hidden rounded-2xl">
-                  <img 
-                    src={selectedEvent.image} 
+                  <img
+                    src={selectedEvent.image}
                     alt={selectedEvent.title}
                     className="w-full h-96 object-cover"
                   />
@@ -230,13 +237,12 @@ const TicketPage = () => {
                 className="space-y-6"
               >
                 <h3 className="text-2xl font-light text-white mb-6">Select Your Tickets</h3>
-                
+
                 {selectedEvent.tickets.map((ticket, index) => (
-                  <Card 
+                  <Card
                     key={index}
-                    className={`bg-white/5 backdrop-blur-md border border-white/10 glass-card cursor-pointer transition-all duration-300 ${
-                      selectedTicket === ticket.type ? 'border-[#60A5FA] shadow-lg shadow-[#60A5FA]/25' : ''
-                    }`}
+                    className={`bg-white/5 backdrop-blur-md border border-white/10 glass-card cursor-pointer transition-all duration-300 ${selectedTicket === ticket.type ? 'border-[#60A5FA] shadow-lg shadow-[#60A5FA]/25' : ''
+                      }`}
                     onClick={() => setSelectedTicket(ticket.type)}
                   >
                     <CardHeader>
@@ -272,7 +278,7 @@ const TicketPage = () => {
                     className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 glass-card"
                   >
                     <h4 className="text-lg font-light text-white mb-4">Booking Details</h4>
-                    
+
                     <div className="space-y-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-300 mb-2">Quantity</label>
@@ -350,8 +356,8 @@ const TicketPage = () => {
                 className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden glass-card group hover:shadow-xl hover:shadow-[#60A5FA]/10 transition-all duration-300"
               >
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={event.image} 
+                  <img
+                    src={event.image}
                     alt={event.title}
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
@@ -363,7 +369,7 @@ const TicketPage = () => {
 
                 <div className="p-6">
                   <h3 className="text-xl font-light text-white mb-3">{event.title}</h3>
-                  
+
                   <div className="space-y-2 mb-4">
                     <div className="flex items-center space-x-3 text-sm">
                       <Calendar className="h-4 w-4 text-[#60A5FA]" />
@@ -413,14 +419,14 @@ const TicketPage = () => {
               Our team is here to help you with any questions about events, tickets, or special arrangements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
+              <a
                 href="tel:+15551234567"
                 className="inline-flex items-center justify-center px-8 py-3 bg-gradient-to-r from-[#60A5FA] to-[#3B82F6] hover:from-[#3B82F6] hover:to-[#60A5FA] text-white rounded-lg transition-all duration-300 hover:scale-105"
               >
                 <Phone className="h-5 w-5 mr-2" />
                 Call Us Now
               </a>
-              <a 
+              <a
                 href="mailto:hello@closedloop.com"
                 className="inline-flex items-center justify-center px-8 py-3 border border-[#60A5FA] text-[#60A5FA] hover:bg-[#60A5FA] hover:text-white rounded-lg transition-all duration-300 hover:scale-105"
               >
