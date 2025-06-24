@@ -79,18 +79,18 @@ const Values = () => {
               <motion.div
                 whileHover={{ scale: 1.2, rotate: 10 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="w-20 h-20 bg-gradient-to-br from-[#60A5FA] to-[#3B82F6] rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-2xl group-hover:shadow-[#60A5FA]/30 transition-all duration-300"
+                className=" mx-auto w-20 h-20 bg-gradient-to-br from-[#60A5FA] to-[#3B82F6] rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-2xl group-hover:shadow-[#60A5FA]/30 transition-all duration-300"
               >
                 <value.icon className="w-10 h-10 text-white" />
               </motion.div>
 
               {/* Value Title */}
-              <h3 className="text-2xl font-light text-white mb-4 group-hover:text-[#60A5FA] transition-colors">
+              <h3 className=" text-center text-2xl font-light text-white mb-4 group-hover:text-[#60A5FA] transition-colors">
                 {value.title}
               </h3>
 
               {/* Value Description */}
-              <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+              <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors text-justify">
                 {value.description}
               </p>
             </motion.div>

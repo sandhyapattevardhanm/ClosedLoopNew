@@ -40,21 +40,22 @@ const About = () => {
 
   const timeline = [
     {
-      year: "2014",
-      title: "Company Founded",
-      description: "ClosedLoop was established with a vision to revolutionize artist management and event production."
+      year: "2025",
+      title: "July",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula sem at lorem efficitur, ac ultricies sapien tristique."
     },
     {
-      year: "2016",
-      title: "First Major Event",
-      description: "Successfully produced our first large-scale music festival with 10,000+ attendees."
+      year: "2025",
+      title: "October",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula sem at lorem efficitur, ac ultricies sapien tristique."
     },
     {
-      year: "2018",
-      title: "International Expansion",
-      description: "Expanded operations to Europe and Asia, establishing global partnerships."
+      year: "2026",
+      title: "January",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula sem at lorem efficitur, ac ultricies sapien tristique."
     }
   ];
+
 
   return (
     <div className="min-h-screen bg-[#0D0D0D]">
