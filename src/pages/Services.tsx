@@ -28,51 +28,27 @@ const Services = () => {
     {
       icon: Users,
       title: "Artist Management",
-      description: "We manage and represent a curated selection of talented performers across various categories, including:",
-      features: [
-        "Singers (playback, live, independent)",
-        "DJs & Music Producers",
-        "Emcees & Hosts",
-        "Dancers & Choreographers",
-        "Influencers & Creators",
-      ],
-      desc: "From contract negotiations to scheduling, promotions, and performance coordination, we ensure that both our clients and artists receive unmatched professionalism and attention.",
+      description: "We represent top-tier performers including singers, DJs, emcees, dancers, and influencers. Our team handles contracts, promotions, and scheduling with precision and care.",
+      desc: "You focus on the stage—we’ll manage the rest.",
     },
     {
       icon: Music,
       title: "Event Management",
-      description: "Every event tells a story. We help you tell yours with flair, structure, and soul. Our event planning services include:",
-      features: [
-        "Corporate Events",
-        "Public Concerts & Festivals",
-        "Promotional & Themed Events",
-      ],
-      desc: "We take care of concept design, logistics, vendor coordination, budgeting, and on-ground execution.",
+      description: "We bring your event vision to life—corporate, public, or themed. From planning to execution, we handle logistics, vendors, and budgeting.",
+      desc: "Your story, perfectly staged.",
     },
     {
       icon: Calendar,
       title: "Brand Collaborations & Promotions",
-      description: "We connect artists and influencers with brands to amplify campaigns through:",
-      features: [
-        "Branded content and influencer partnerships",
-        "Product launches and showcase events",
-        "Experiential marketing setups",
-        "Emcee-driven interactions & stage presence",
-      ],
-      desc: "Whether you're a startup or an established brand, we help elevate your identity with impactful experiences.",
+      description: "We connect brands with artists to create powerful campaigns. Think influencer partnerships, product launches, and immersive experiences.",
+
+      desc: "Engage your audience with authenticity.",
     },
     {
       icon: Megaphone,
       title: "Production Setup",
-      description: "Our behind-the-scenes services ensure your event is executed flawlessly:",
-      features: [
-        "Stage design and fabrication",
-        "Professional sound and lighting systems",
-        "LED screens, visual backdrops",
-        "Crew and technical staff coordination",
-        "Rehearsal and event-day stage management",
-      ],
-      desc: "We work with the best vendors to deliver production that’s as polished as the performance.",
+      description: "Behind every great event is flawless production. We manage stage design, lighting, visuals, and crew coordination.",
+      desc: "Leave the tech to us—focus on the impact.",
     },
 
 
@@ -82,22 +58,19 @@ const Services = () => {
     {
       name: "Sarah Johnson",
       role: "Artist Manager",
-      company: "Universal Music",
-      content: "ClosedLoop transformed our artist's career trajectory. Their strategic approach and industry connections are unmatched.",
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       rating: 5
     },
     {
       name: "Michael Chen",
       role: "Event Director",
-      company: "Live Nation",
-      content: "The production quality and attention to detail exceeded our expectations. They made our vision come to life perfectly.",
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       rating: 5
     },
     {
       name: "Emma Rodriguez",
       role: "Marketing Director",
-      company: "Nike",
-      content: "Their brand partnership expertise helped us create authentic connections with artists that resonated with our audience.",
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       rating: 5
     }
   ];
@@ -139,7 +112,7 @@ const Services = () => {
       {/* Services Overview */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => {
               const IconComponent = service.icon;
               return (
@@ -164,28 +137,14 @@ const Services = () => {
                     <IconComponent className="w-8 h-8 text-white" />
                   </motion.div>
 
-                  <h3 className="text-2xl font-light text-white mb-4 group-hover:text-[#60A5FA] transition-colors">
+                  <h3 className="text-2xl font-light text-white mb-4 group-hover:text-[#60A5FA] transition-colors text-center">
                     {service.title}
                   </h3>
 
-                  <p className="text-gray-400 mb-6 leading-relaxed">
+                  <p className="text-gray-400 mb-6 leading-relaxed text-justify">
                     {service.description}
                   </p>
-                  <div className="space-y-4 mb-8">
-                    {service.features.map((feature, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.4, delay: index * 0.1 }}
-                        className="flex items-start space-x-3"
-                      >
-                        <Check className="h-5 w-5 text-[#60A5FA] flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-300">{feature}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                  <p className="text-gray-400 mb-6 leading-relaxed">
+                  <p className="text-gray-400 mb-6 leading-relaxed text-justify">
                     {service.desc}
                   </p>
                 </motion.div>
@@ -233,7 +192,8 @@ const Services = () => {
                 <p className="text-gray-300 mb-6 leading-relaxed">"{testimonial.content}"</p>
                 <div>
                   <div className="font-medium text-white">{testimonial.name}</div>
-                  <div className="text-sm text-gray-400">{testimonial.role} at {testimonial.company}</div>
+                  <div className="text-sm text-gray-400">{testimonial.role}</div>
+
                 </div>
               </motion.div>
             ))}

@@ -34,20 +34,20 @@ const Contact = () => {
 
   const offices = [
     {
-      city: "New York",
-      country: "USA",
-      address: "123 Broadway, New York, NY 10001",
-      phone: "+1 (555) 123-4567",
-      email: "nyc@closedloop.com",
-      hours: "Mon-Fri: 9AM-6PM EST"
+      city: "Bangalore",
+      country: "India",
+      address: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      phone: "+91 1234567890",
+      email: "hello@closedloop.com",
+      hours: "Mon-Fri: 9AM-6PM IST"
     },
     {
-      city: "London",
-      country: "UK",
-      address: "456 Oxford Street, London, W1C 1AP",
-      phone: "+44 20 7123 4567",
-      email: "london@closedloop.com",
-      hours: "Mon-Fri: 9AM-6PM GMT"
+      city: "Mumbai",
+      country: "India",
+      address: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      phone: "+91 1234567890",
+      email: "hello@closedloop.com",
+      hours: "Mon-Fri: 9AM-6PM IST"
     },
   ];
 
@@ -63,7 +63,7 @@ const Contact = () => {
       icon: Phone,
       title: "Call Us",
       description: "Speak directly with our team",
-      contact: "+1 (555) 123-4567",
+      contact: "+91 1234567890",
       response: "Available Mon-Fri, 9AM-6PM EST"
     },
     {
@@ -210,7 +210,7 @@ const Contact = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Company</label>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">Company (Optional)</label>
                       <Input
                         type="text"
                         value={formData.company}
