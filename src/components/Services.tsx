@@ -112,7 +112,7 @@ const Services = () => {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -130,22 +130,22 @@ const Services = () => {
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ duration: 0.3 }}
-                className="w-16 h-16 bg-gradient-to-br from-[#60A5FA] to-[#3B82F6] rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-[#60A5FA]/25 transition-all duration-300"
+                className="w-16 h-16 bg-gradient-to-br from-[#60A5FA] to-[#3B82F6] rounded-2xl flex items-center justify-center mb-6 group-hover:shadow-lg group-hover:shadow-[#60A5FA]/25 transition-all duration-300 mx-auto"
               >
-                <service.icon className="w-8 h-8 text-white" />
+                <service.icon className="w-8 h-8 text-white mx-auto" />
               </motion.div>
 
               {/* Service Title */}
-              <h3 className="text-2xl font-light text-white mb-4 group-hover:text-[#60A5FA] transition-colors">
+              <h3 className="text-2xl font-light text-white mb-4 group-hover:text-[#60A5FA] transition-colors text-center">
                 {service.title}
               </h3>
 
               {/* Service Description */}
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              <p className="text-gray-400 mb-6 leading-relaxed text-justify">
                 {service.description}
               </p>
 
-              {/* Service Features */}
+              {/* Service Features 
               <ul className="space-y-2">
                 {service.features.map((feature, featureIndex) => (
                   <motion.li
@@ -162,7 +162,7 @@ const Services = () => {
                     </span>
                   </motion.li>
                 ))}
-              </ul>
+              </ul>*/}
             </motion.div>
           ))}
         </div>

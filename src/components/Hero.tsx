@@ -328,7 +328,7 @@ const Hero = () => {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="group px-8 py-6 text-lg font-semibold text-gray-300 hover:text-white transition-all duration-300 rounded-xl glass-card hover:bg-white/10"
+                  className="group px-8 py-6 text-lg font-semibold text-gray-400 hover:text-white transition-all duration-300 rounded-xl glass-card hover:bg-white/10"
                 >
                   <motion.div
                     whileHover={{ scale: 1.3, rotate: 180 }}
@@ -337,7 +337,7 @@ const Hero = () => {
                   >
                     <Play className="h-5 w-5 group-hover:text-[#60A5FA] transition-colors" />
                   </motion.div>
-                  Watch Showreel
+                  Watch
                 </Button>
               </motion.div>
             </motion.div>

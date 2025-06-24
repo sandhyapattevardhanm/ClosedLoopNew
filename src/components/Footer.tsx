@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import XIcon from '@/components/XIcon';
 import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
@@ -29,7 +30,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: XIcon, href: '#', label: 'X (Twitter)' },
     { icon: Instagram, href: '#', label: 'Instagram' },
     { icon: Linkedin, href: '#', label: 'LinkedIn' },
     { icon: Youtube, href: '#', label: 'YouTube' }
@@ -48,16 +49,16 @@ const Footer = () => {
             className="lg:col-span-1"
           >
             <Link to="/" className="flex items-center mb-6">
-              <img 
-                src="/Blue Logo no bg.png" 
-                alt="ClosedLoop Logo" 
+              <img
+                src="/Blue Logo no bg.png"
+                alt="ClosedLoop Logo"
                 className="h-10 w-auto"
               />
             </Link>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Transforming the entertainment industry through innovative artist management and cutting-edge event production.
             </p>
-            
+
             {/* Contact Info */}
             <div className="space-y-3">
               <motion.div
@@ -74,7 +75,7 @@ const Footer = () => {
                 className="flex items-center space-x-3 text-gray-400 hover:text-[#60A5FA] transition-colors"
               >
                 <Phone className="h-4 w-4" />
-                <span className="text-sm">+1 (555) 123-4567</span>
+                <span className="text-sm">+1 (123) 123-4567</span>
               </motion.div>
               <motion.div
                 whileHover={{ x: 5 }}
@@ -82,7 +83,7 @@ const Footer = () => {
                 className="flex items-center space-x-3 text-gray-400 hover:text-[#60A5FA] transition-colors"
               >
                 <MapPin className="h-4 w-4" />
-                <span className="text-sm">Los Angeles, CA</span>
+                <span className="text-sm">Bengaluru, India</span>
               </motion.div>
             </div>
           </motion.div>
@@ -184,7 +185,7 @@ const Footer = () => {
             <p className="text-gray-400 text-sm">
               © {currentYear} ClosedLoop. All rights reserved.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => {
@@ -197,10 +198,10 @@ const Footer = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    whileHover={{ 
-                      scale: 1.2, 
+                    whileHover={{
+                      scale: 1.2,
                       color: '#60A5FA',
-                      y: -2 
+                      y: -2
                     }}
                     transition={{ duration: 0.2 }}
                     className="text-gray-400 hover:text-[#60A5FA] transition-colors duration-200"
